@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="el-button">
+    <button class="el-button" :class="`${type}`">
     <svg class="icon">
      <use xlink:href="#icon-error"></use>
     </svg>
@@ -12,7 +12,8 @@
 <script>
 import './svg.js'
 export default {
-  name: "Button"
+  name: "Button",
+  props:['type'],
 };
 </script>
 
@@ -48,6 +49,11 @@ button:active::before {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  }
+.normal{
+ color: black;
+ background-color: white;
+ border: 1px solid #dcdfe6;
 }
 </style>
 
