@@ -2,7 +2,7 @@
   <div>
     <button class="el-button">
     <svg class="icon">
-     <use xlink:href="#icon-download"></use>
+     <use xlink:href="#icon-error"></use>
     </svg>
       <slot>默认</slot>
     </button>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import './svg.js'
 export default {
   name: "Button"
 };
@@ -17,6 +18,7 @@ export default {
 
 <style>
 .el-button {
+  margin: 1em;
   display: inline-block;
   line-height: 1;
   text-align: center;
@@ -34,8 +36,8 @@ button:active::before {
   display: block;
   content: "";
   position: absolute;
-  top: -1px;
-  left: -1px;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 5%);

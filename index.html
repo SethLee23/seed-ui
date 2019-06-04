@@ -12,6 +12,7 @@
         }
         :root {
             --button-danger-background: #f78989;
+            --button-normal-background: white;
             --color: white;
             --border-color: #f78989;
             --font-size: 14px;
@@ -23,12 +24,17 @@
             --padding-leftandright: 1.45em;
             --border-radius: 4px;
         }
+        #app{
+            margin: 20px;
+            display: inline-flex;
+        }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <s-button>error</s-button>
+        <s-button type="error">error</s-button>
+        <s-button type="normal">normal</s-button>
     </div>
     <script src="./src/app.js"></script>
 </body>

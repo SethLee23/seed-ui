@@ -15,6 +15,7 @@
   "author": "sethlee",
   "license": "MIT",
   "dependencies": {
+    "svg.js": "^2.7.1",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
