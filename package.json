@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx parcel index.html --no-cache",
+    "dev": "npx parcel index.html",
     "build": "parcel build index.html --no-cache --no-minify"
   },
   "keywords": [
@@ -15,9 +15,15 @@
   "author": "sethlee",
   "license": "MIT",
   "dependencies": {
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+    "@vue/component-compiler-utils": "^3.0.0",
+    "parcel-bundler": "^1.12.3",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "alias": {
+    "vue": "./node_modules/vue/dist/vue.common.js"
   }
 }
