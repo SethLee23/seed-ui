@@ -7,12 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        *,*::before,*::after{
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
         }
+
         :root {
-            --button-danger-background: #f78989;
-            --button-normal-background: white;
+            --button-danger: #f78989;
+            --button-normal: white;
+            --button-success: #67c23a;
             --color: white;
             --border-color: #f78989;
             --font-size: 14px;
@@ -23,8 +27,10 @@
             --padding-topandbottom: 0.85em;
             --padding-leftandright: 1.45em;
             --border-radius: 4px;
+            --circle-padding:1em;
         }
-        #app{
+
+        #rect-button,#round-button {
             margin: 20px;
             display: inline-flex;
         }
@@ -33,8 +39,18 @@
 
 <body>
     <div id="app">
-        <s-button type="error">error</s-button>
-        <s-button type="normal">normal</s-button>
+        <div id="rect-button">
+            <s-button type="danger">error</s-button>
+            <s-button type="success">success</s-button>
+            <s-button type="normal">normal</s-button>
+        </div>
+        <div id="round-button">
+          <s-button type="circle danger"></s-button>
+          <s-button type="circle normal"></s-button>
+          <s-button type="circle success"></s-button>
+        </div>
+
+
     </div>
     <script src="./src/app.js"></script>
 </body>
