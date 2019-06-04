@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *,*::before,*::after{
+            box-sizing: border-box;
+        }
+        :root {
+            --button-danger-background: #f78989;
+            --color: white;
+            --border-color: #f78989;
+            --font-size: 14px;
+            --padding-top: 0.85em;
+            --padding-right: 1.45em;
+            --padding-bottom: 0.85em;
+            --padding-left: 1.45em;
+            --padding-topandbottom: 0.85em;
+            --padding-leftandright: 1.45em;
+            --border-radius: 4px;
+        }
+
+        .el-button {
+            display: inline-block;
+            line-height: 1;
+            text-align: center;
+            outline: none;
+            border: 1px solid var(--border-color);
+            color: var(--color);
+            background-color: var(--button-danger-background);
+            padding: var(--padding-topandbottom) var(--padding-leftandright);
+            font-size: var(--font-size);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        button:active::before {
+            display: block;
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 5%)
+        }
+    </style>
 </head>
+
 <body>
-    <button></button>
+    <button class="el-button">danger</button>
     <script src="./index.js"></script>
 </body>
+
 </html>
