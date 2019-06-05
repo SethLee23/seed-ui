@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="el-button" :class="`${type}`">
+    <button class="el-button" :class="`${type}`" :disabled="disabled">
       <svg class="icon">
         <use xlink:href="#icon-error"></use>
       </svg>
@@ -13,7 +13,16 @@
 import "./svg.js";
 export default {
   name: "Button",
-  props: ["type"]
+  props: {
+    type:{
+    type: String,
+    default: 'normal',
+    },
+    disabled: {
+    type: Boolean,
+    default: false,
+    }
+  }
 };
 </script>
 
