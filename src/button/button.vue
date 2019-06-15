@@ -160,6 +160,26 @@ button.success {
 button.circle {
   border-radius: 50%;
   padding: $circle-padding;
+  &.icon-left {
+    > .icon {
+      order: 1;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    > .content {
+      order: 2;
+    }
+  }
+  &.icon-right {
+    > .icon {
+      order: 2;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    > .content {
+      order: 1;
+    }
+  }
 }
 .icon.loading {
   animation: spin 2s infinite linear;
