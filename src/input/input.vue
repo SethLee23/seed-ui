@@ -9,8 +9,7 @@
     @input="$emit('input',$event.target.value)"
     @blur="$emit('blur',$event.target.value)"
     :placeholder="placeholder"
-    ref="input"
-    >
+    ref="input">
     <div class="errmsg" v-if="error">
         <s-icon name="error"></s-icon>
         {{error}}
@@ -67,10 +66,8 @@ export default {
   },
   mounted(){
       if(this.$refs.icon){
-        // this.$refs.input.style.paddingRight='2em'
-        this.$refs.input.classList.add('notLast')
+        this.$refs.input.classList.add('iconRight')
       }
-    //   
   },
   methods: {
       clear(){
@@ -101,7 +98,7 @@ $red: #f1453d;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     padding: 0 8px;
-    &.notLast {
+    &.iconRight {
     width: calc(100% - 2em);
     padding-right: 2em;
   }
@@ -141,7 +138,6 @@ $red: #f1453d;
       justify-content: center;
       right: 2.5em;
   }
-  
 }
 </style>
 

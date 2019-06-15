@@ -63,8 +63,25 @@
         <br>
         <br>
         <s-input icon="magnifier" placeholder="加入icon"></s-input>
-        <!-- <s-input icon="magnifier" position="left" placeholder="icon在左边"></s-input> -->
-       
+<br>
+<hr>
+        <s-tabs>
+        <!-- <s-tabs @update:selected='yyy' :selected.sync="selectedTab"> -->
+            
+                <s-tabs-head>
+                    <s-tabs-item name="woman" disabled>
+                         美女
+                    </s-tabs-item>
+                    <s-tabs-item name="finance">财经</s-tabs-item>
+                    <s-tabs-item name="sports">体育</s-tabs-item>
+                </s-tabs-head>
+                
+                <s-tabs-body>
+                    <s-tabs-pane name="woman">美女相关资讯</s-tabs-pane>
+                    <s-tabs-pane name="finance">财经相关资讯</s-tabs-pane>
+                    <s-tabs-pane name="sports">体育相关资讯</s-tabs-pane>
+                </s-tabs-body>
+            </s-tabs>
 
     </div>
     <script src="./src/app.js"></script>
