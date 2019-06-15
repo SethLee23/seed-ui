@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Button from './Button'
+import Button from './button/Button'
 Vue.component('s-button',Button)
 
 new Vue({
