@@ -1,13 +1,16 @@
 <template>
-  <div>
-    <button class="el-button" :class="[`${types}`,`icon-${position}`]" :disabled="disabled" @click="$emit('click')">
+    <button
+      class="el-button"
+      :class="[`${types}`,`icon-${position}`]"
+      :disabled="disabled"
+      @click="$emit('click')"
+    >
       <s-icon :name="icon" class="icon" v-if="icon"></s-icon>
       <s-icon name="loading" class="icon loading" v-if="loading"></s-icon>
       <span class="content">
         <slot></slot>
       </span>
     </button>
-  </div>
 </template>
 
 <script>
@@ -17,13 +20,17 @@ import Icon from "./icon";
 
 Vue.component("s-icon", Icon);
 export default {
-  name: "Button",
+  name: "SButton",
   props: {
     types: {
       type: String,
       default: "normal"
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
       type: Boolean,
       default: false
     },
@@ -45,19 +52,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$button-danger: #f78989;
+$button-normal: white;
+$button-success: #67c23a;
+$color: white;
+$border-color: #f78989;
+$font-size: 14px;
+$padding-top: 0.85em;
+$padding-right: 1.45em;
+$padding-bottom: 0.85em;
+$padding-left: 1.45em;
+$padding-topandbottom: 0.85em;
+$padding-leftandright: 1.45em;
+$border-radius: 4px;
+$circle-padding: 1em;
+$border-color-hover: #666;
 /* base css */
 .el-button {
-  margin: 1em;
   display: inline-block;
   line-height: 1;
   text-align: center;
   outline: none;
-  background-color: var(--button-normal);
+  background-color: $button-normal;
   border: 1px solid #dcdfe6;
-  color: var(--color);
-  padding: var(--padding-topandbottom) var(--padding-leftandright);
-  font-size: var(--font-size);
-  border-radius: var(--border-radius);
+  color: $color;
+  padding: $padding-topandbottom $padding-leftandright;
+  font-size: $font-size;
+  border-radius: $border-radius;
   position: relative;
   display: flex;
   &.icon-left {
@@ -81,7 +102,11 @@ export default {
     }
   }
 }
-
+button:disabled {
+  border-color: #bbb;
+  color: #bbb;
+  cursor: not-allowed;
+}
 button:active::before {
   display: block;
   content: "";
@@ -102,6 +127,7 @@ button:hover::after {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 15%);
+  box-shadow: 0px 1px 2px 1px rgba(0,0,0,30%); 
 }
 
 button.circle:hover::after,
@@ -119,21 +145,21 @@ button.circle:active::before {
 
 /* diffrent type button */
 button.danger {
-  background-color: var(--button-danger);
+  background-color: $button-danger;
 }
 button.normal {
   color: black;
-  background-color: var(--button-normal);
+  background-color: $button-normal;
   border: 1px solid #dcdfe6;
 }
 button.success {
-  background-color: var(--button-success);
-  border: 1px solid var(--button-success);
+  background-color: $button-success;
+  border: 1px solid $button-success;
 }
 /* circle button */
 button.circle {
   border-radius: 50%;
-  padding: var(--circle-padding);
+  padding: $circle-padding;
 }
 .icon.loading {
   animation: spin 2s infinite linear;

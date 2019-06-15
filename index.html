@@ -13,26 +13,17 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --button-danger: #f78989;
-            --button-normal: white;
-            --button-success: #67c23a;
-            --color: white;
-            --border-color: #f78989;
-            --font-size: 14px;
-            --padding-top: 0.85em;
-            --padding-right: 1.45em;
-            --padding-bottom: 0.85em;
-            --padding-left: 1.45em;
-            --padding-topandbottom: 0.85em;
-            --padding-leftandright: 1.45em;
-            --border-radius: 4px;
-            --circle-padding:1em;
-        }
 
-        #rect-button,#round-button {
+        #rect-button,
+        #round-button {
             margin: 20px;
             display: inline-flex;
+        }
+        #rect-button button {
+            margin: 1em;
+        }
+        #round-button button {
+            margin: 1em;
         }
     </style>
 </head>
@@ -46,13 +37,20 @@
             <s-button :loading="true" position="right">normal</s-button>
             <s-button disabled icon="pen">disabled</s-button>
         </div>
+        <s-icon name="loading"></s-icon>
         <div id="round-button">
-          <s-button types="circle danger" icon="errormsg"></s-button>
-          <s-button types="circle normal" icon="setting"></s-button>
-          <s-button types="circle success" icon="collection"></s-button>
+            <s-button types="circle danger" icon="errormsg"></s-button>
+            <s-button types="circle normal" icon="setting"></s-button>
+            <s-button types="circle success" icon="collection"></s-button>
         </div>
-
-
+        
+        <s-button-group>
+            <s-button>上一页</s-button>
+            <s-button>1</s-button>
+            <s-button>2</s-button>
+            <s-button>3</s-button>
+            <s-button>下一页</s-button>
+        </s-button-group>
     </div>
     <script src="./src/app.js"></script>
 </body>
