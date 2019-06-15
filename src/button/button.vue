@@ -1,16 +1,16 @@
 <template>
-    <button
-      class="el-button"
-      :class="[`${types}`,`icon-${position}`]"
-      :disabled="disabled"
-      @click="$emit('click')"
-    >
-      <s-icon :name="icon" class="icon" v-if="icon"></s-icon>
-      <s-icon name="loading" class="icon loading" v-if="loading"></s-icon>
-      <span class="content">
-        <slot></slot>
-      </span>
-    </button>
+  <button
+    class="el-button"
+    :class="[`${types}`,`icon-${position}`]"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <s-icon :name="icon" class="icon" v-if="icon&&!loading"></s-icon>
+    <s-icon name="loading" class="icon loading" v-if="loading"></s-icon>
+    <span class="content">
+      <slot></slot>
+    </span>
+  </button>
 </template>
 
 <script>
@@ -127,7 +127,7 @@ button:hover::after {
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 15%);
-  box-shadow: 0px 1px 2px 1px rgba(0,0,0,30%); 
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 30%);
 }
 
 button.circle:hover::after,

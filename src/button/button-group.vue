@@ -30,8 +30,8 @@ $border-color-hover: #666;
 .group {
   display: inline-flex;
   > button {
-  border-radius: 0;
-}
+    border-radius: 0;
+  }
   > button:first-of-type {
     border-top-left-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
@@ -40,11 +40,11 @@ $border-color-hover: #666;
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
   }
-  > button:not(:first-child){
-   margin-left: -1px;
+  > button:not(:first-child) {
+    margin-left: -1px;
   }
   > button:hover {
-      z-index: 1;
+    z-index: 1;
   }
 }
 </style>
