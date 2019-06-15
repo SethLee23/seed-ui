@@ -40,16 +40,16 @@
 <body>
     <div id="app">
         <div id="rect-button">
-            <s-button type="danger">error</s-button>
-            <s-button type="success">success</s-button>
-            <s-button type="normal">normal</s-button>
-            <s-button :loading="true">normal</s-button>
-            <s-button disabled>disabled</s-button>
+            <s-button types="danger" icon="error" @click="sayHi">error</s-button>
+            <s-button types="success" icon="correct">success</s-button>
+            <s-button types="normal" icon="message" position="right">normal</s-button>
+            <s-button :loading="true" position="right">normal</s-button>
+            <s-button disabled icon="pen">disabled</s-button>
         </div>
         <div id="round-button">
-          <s-button type="circle danger"></s-button>
-          <s-button type="circle normal"></s-button>
-          <s-button type="circle success"></s-button>
+          <s-button types="circle danger" icon="errormsg"></s-button>
+          <s-button types="circle normal" icon="setting"></s-button>
+          <s-button types="circle success" icon="collection"></s-button>
         </div>
 
 

@@ -1,32 +1,50 @@
 <template>
   <div>
-    <button class="el-button" :class="`${type}`" :disabled="disabled">
-      <svg class="icon">
-        <use xlink:href="#icon-error"></use>
-      </svg>
-      <slot></slot>
+    <button class="el-button" :class="[`${types}`,`icon-${position}`]" :disabled="disabled" @click="$emit('click')">
+      <s-icon :name="icon" class="icon" v-if="icon"></s-icon>
+      <s-icon name="loading" class="icon loading" v-if="loading"></s-icon>
+      <span class="content">
+        <slot></slot>
+      </span>
     </button>
   </div>
 </template>
 
 <script>
 import "./svg.js";
+import Vue from "vue";
+import Icon from "./icon";
+
+Vue.component("s-icon", Icon);
 export default {
   name: "Button",
   props: {
-    type:{
-    type: String,
-    default: 'normal',
+    types: {
+      type: String,
+      default: "normal"
     },
     disabled: {
-    type: Boolean,
-    default: false,
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: String
+    },
+    loading: {
+      type: Boolean
+    },
+    position: {
+      type: String,
+      default: "left",
+      validator(value) {
+        return ["left", "right"].indexOf(value) >= 0;
+      }
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 /* base css */
 .el-button {
   margin: 1em;
@@ -41,6 +59,27 @@ export default {
   font-size: var(--font-size);
   border-radius: var(--border-radius);
   position: relative;
+  display: flex;
+  &.icon-left {
+    > .icon {
+      order: 1;
+      margin-left: 0;
+      margin-right: 0.2em;
+    }
+    > .content {
+      order: 2;
+    }
+  }
+  &.icon-right {
+    > .icon {
+      order: 2;
+      margin-left: 0.2em;
+      margin-right: 0;
+    }
+    > .content {
+      order: 1;
+    }
+  }
 }
 
 button:active::before {
@@ -65,8 +104,9 @@ button:hover::after {
   background: rgba(255, 255, 255, 15%);
 }
 
-button.circle:hover::after, button.circle:active::before {
-  border-radius:50%;
+button.circle:hover::after,
+button.circle:active::before {
+  border-radius: 50%;
 }
 
 .icon {
@@ -94,6 +134,17 @@ button.success {
 button.circle {
   border-radius: 50%;
   padding: var(--circle-padding);
+}
+.icon.loading {
+  animation: spin 2s infinite linear;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
 

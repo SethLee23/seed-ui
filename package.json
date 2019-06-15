@@ -15,12 +15,14 @@
   "author": "sethlee",
   "license": "MIT",
   "dependencies": {
+    "svg.js": "^2.7.1",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
     "parcel-bundler": "^1.12.3",
+    "sass": "^1.21.0",
     "vue-template-compiler": "^2.6.10"
   },
   "alias": {
