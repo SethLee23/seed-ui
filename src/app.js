@@ -15,7 +15,7 @@ Vue.component('s-input',Input)
 new Vue({
     el: '#app',
     data: {
-      message: '123',
+      message: '11111',
     },
     methods: {
       sayHi(){

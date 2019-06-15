@@ -1,26 +1,40 @@
 <template>
   <div class="wrapper" :class="{error:error}">
-    <input type="text" placeholder="hello 我是组件" 
+    <input type="text"
     :disabled="disabled" :readonly="readonly"
-    :value="value"
+    :error="error"
+    v-model="inputValue"
     @change='$emit("change",$event.target.value)'
     @focus="$emit('focus',$event.target.value)"
     @input="$emit('input',$event.target.value)"
     @blur="$emit('blur',$event.target.value)"
+    :placeholder="placeholder"
+    ref="input"
     >
     <div class="errmsg" v-if="error">
         <s-icon name="error"></s-icon>
         {{error}}
     </div>
-    <s-icon name="setting" v-if="icon"></s-icon>
+  <div class="delete" v-if="clearable" @click="clear" ref="icon">
+    <s-icon name="cha"></s-icon>
+  </div>
+  <div :class="{[`position-${position}`]:true}" v-if="icon" ref="icon">
+    <s-icon :name="icon"></s-icon>
+  </div>
   </div>
 </template>
 
 <script>
+// 解决 position 问题，首先获取拥有icon的ref,设置其class为特别的class
 import Vue from "vue";
 
 export default {
   name: "SInput",
+  data(){
+     return {
+     inputValue: this.value  
+     }
+  },
   props: {
       icon:{
           type: String,
@@ -45,6 +59,22 @@ export default {
       },
       error: {
           type: String,
+      },
+      position: {
+          type: String,
+          default: 'right',
+      }
+  },
+  mounted(){
+      if(this.$refs.icon){
+        // this.$refs.input.style.paddingRight='2em'
+        this.$refs.input.classList.add('notLast')
+      }
+    //   
+  },
+  methods: {
+      clear(){
+       this.inputValue = ''
       }
   }
 };
@@ -61,6 +91,7 @@ $red: #f1453d;
   font-size: 14px;
   display: inline-flex;
   align-items: center;
+  position: relative;
   > :not(:last-child) {
     margin-right: 0.5em;
   }
@@ -70,6 +101,10 @@ $red: #f1453d;
     border: 1px solid $border-color;
     border-radius: $border-radius;
     padding: 0 8px;
+    &.notLast {
+    width: calc(100% - 2em);
+    padding-right: 2em;
+  }
     &:hover {
       border: 1px solid $border-color-hover;
     }
@@ -97,6 +132,16 @@ $red: #f1453d;
   .errmsg {
     color: $red;
   }
+  .delete, 
+  .position-right{
+      position: absolute;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 2.5em;
+  }
+  
 }
 </style>
 

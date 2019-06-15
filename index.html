@@ -12,6 +12,7 @@
         *::after {
             box-sizing: border-box;
         }
+
         #rect-button,
         #round-button {
             margin: 20px;
@@ -51,18 +52,19 @@
             <s-button>3</s-button>
             <s-button>下一页</s-button>
         </s-button-group>
-<hr>
-<s-input disabled></s-input>
-<s-input readonly></s-input>
-<s-input error="密码错误，请重新输入"></s-input>
-<s-input v-model="message"></s-input>
-
-
-
-
-
-
-
+        <hr>
+        <s-input disabled placeholder="disabled"></s-input>
+        <s-input readonly placeholder="readonly"></s-input>
+        <s-input error="密码错误，请重新输入"></s-input>
+        <br>
+        <s-input v-model="message"></s-input>
+        <s-input placeholder="placeholder"></s-input>
+        <s-input clearable placeholder="clearable"></s-input>
+        <br>
+        <br>
+        <s-input icon="magnifier" placeholder="加入icon"></s-input>
+        <!-- <s-input icon="magnifier" position="left" placeholder="icon在左边"></s-input> -->
+       
 
     </div>
     <script src="./src/app.js"></script>
