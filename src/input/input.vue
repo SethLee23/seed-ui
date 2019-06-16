@@ -10,17 +10,20 @@
     @blur="$emit('blur',$event.target.value)"
     :placeholder="placeholder"
     ref="input">
+
     <template v-if="error">
     <div class="errmsg">
         <s-icon name="error"></s-icon>
         {{error}}
     </div>
     </template>
+
     <template v-if="clearable" >
   <div class="delete" @click="clear" ref="icon">
     <s-icon name="cha"></s-icon>
   </div>
   </template>
+  
   <template v-if="icon" >
   <div :class="{[`position-${position}`]:true}" v-if="icon" ref="icon">
     <s-icon :name="icon"></s-icon>

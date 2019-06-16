@@ -26,13 +26,6 @@ export default {
         this.active = false
       }
     });
-    // this.eventBus.$on("update:changeSelected", name => {
-    //   if (name === this.name) {
-    //     this.active = true
-    //   }else{
-    //     this.active = false
-    //   }
-    // });
   },
 };
 </script>
