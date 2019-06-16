@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        /* body,
+        * {
+            margin: 0;
+            padding: 0;
+        } */
+
         *,
         *::before,
         *::after {
@@ -25,6 +31,10 @@
 
         #round-button button {
             margin: 1em;
+        }
+
+        .sTabs {
+            margin: 10px;
         }
     </style>
 </head>
@@ -57,32 +67,34 @@
         <s-input readonly placeholder="readonly"></s-input>
         <s-input error="密码错误，请重新输入"></s-input>
         <br>
+        <br>
         <s-input v-model="message"></s-input>
         <s-input placeholder="placeholder"></s-input>
         <s-input clearable placeholder="clearable"></s-input>
         <br>
         <br>
         <s-input icon="magnifier" placeholder="加入icon"></s-input>
-<br>
-<hr>
-        <s-tabs>
-        <!-- <s-tabs @update:selected='yyy' :selected.sync="selectedTab"> -->
-            
+        <br>
+        <hr>
+        <div class="sTabs">
+            <s-tabs :selected.sync="selectedTab" @update:selected="yyy">
+                <!-- <s-tabs @update:selected='yyy' :selected.sync="selectedTab"> -->
                 <s-tabs-head>
                     <s-tabs-item name="woman" disabled>
-                         美女
+                        美女
                     </s-tabs-item>
                     <s-tabs-item name="finance">财经</s-tabs-item>
                     <s-tabs-item name="sports">体育</s-tabs-item>
                 </s-tabs-head>
-                
+
                 <s-tabs-body>
                     <s-tabs-pane name="woman">美女相关资讯</s-tabs-pane>
                     <s-tabs-pane name="finance">财经相关资讯</s-tabs-pane>
                     <s-tabs-pane name="sports">体育相关资讯</s-tabs-pane>
                 </s-tabs-body>
             </s-tabs>
-
+            {{selectedTab}}
+        </div>
     </div>
     <script src="./src/app.js"></script>
 </body>

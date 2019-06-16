@@ -10,23 +10,30 @@
     @blur="$emit('blur',$event.target.value)"
     :placeholder="placeholder"
     ref="input">
-    <div class="errmsg" v-if="error">
+    <template v-if="error">
+    <div class="errmsg">
         <s-icon name="error"></s-icon>
         {{error}}
     </div>
-  <div class="delete" v-if="clearable" @click="clear" ref="icon">
+    </template>
+    <template v-if="clearable" >
+  <div class="delete" @click="clear" ref="icon">
     <s-icon name="cha"></s-icon>
   </div>
+  </template>
+  <template v-if="icon" >
   <div :class="{[`position-${position}`]:true}" v-if="icon" ref="icon">
     <s-icon :name="icon"></s-icon>
   </div>
+  </template>
   </div>
 </template>
 
 <script>
 // 解决 position 问题，首先获取拥有icon的ref,设置其class为特别的class
 import Vue from "vue";
-
+import Icon from "../button/icon";
+Vue.component('s-icon',Icon)
 export default {
   name: "SInput",
   data(){

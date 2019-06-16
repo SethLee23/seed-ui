@@ -26,10 +26,15 @@ new Vue({
     el: '#app',
     data: {
       message: '11111',
+      selectedTab: 'woman',
+
     },
     methods: {
       sayHi(){
         console.log('hihihi')
+      },
+      yyy(){
+        // console.log(123)
       }
     }
   })
