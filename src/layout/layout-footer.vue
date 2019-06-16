@@ -20,8 +20,6 @@ export default {
 
 <style lang="scss" scoped>
 .SLayoutFooter {
-    border: 1px solid pink;
-    flex-grow: 0;
 }
 </style>
 

@@ -18,8 +18,6 @@ export default {
 
 <style lang="scss" scoped>
 .SLayoutHeader {
-    border: 1px solid green;
-    flex-grow: 0;
 }
 </style>
 

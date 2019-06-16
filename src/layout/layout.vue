@@ -1,5 +1,5 @@
 <template>
-  <div class="sLayout">
+  <div class="sLayout" :class="{hasSider: hasSider}">
     <slot></slot>
   </div>
 </template>
@@ -8,10 +8,19 @@
 export default {
   name: "SLayout",
   data() {
-    return {};
+    return {
+        hasSider: false
+    };
   },
-  props: {},
-  mounted() {}
+  mounted() {
+    //   console.log(this.$children)
+      this.$children.forEach((childVm)=>{
+       if(childVm.$options.name==='SLayoutSider'){
+         this.hasSider = true
+       }
+      })
+    
+  }
 };
 </script>
 
@@ -19,6 +28,10 @@ export default {
 .sLayout {
   flex-flow: column;
   display: flex;
+  flex-grow: 1;
+  .hasSider {
+      flex-flow: row;
+  }
 }
 </style>
 

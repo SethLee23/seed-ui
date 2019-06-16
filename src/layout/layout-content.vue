@@ -20,8 +20,7 @@ export default {
 
 <style lang="scss" scoped>
 .SLayoutContent {
- flex: 1;
-  border: 1px solid gold;
+ flex-grow: 1;
 }
 </style>
 

@@ -20,7 +20,6 @@ export default {
 
 <style lang="scss" scoped>
 .SLayoutSider {
-    border: 1px solid blue;
 }
 </style>
 

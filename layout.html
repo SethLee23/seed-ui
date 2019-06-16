@@ -23,12 +23,45 @@
 
 <body>
     <div id="app">
-        <s-Layout>
-            <s-Layout-header>header</s-Layout-header>
-            <!-- <s-Layout-sider>sider</s-Layout-sider> -->
-            <s-layout-content>content</s-layout-content>
-            <s-layout-footer>footer</s-layout-footer>
+        <s-layout style="color: white; overflow:hidden;">
+            <s-layout-header style=" background:#25CCF7;">header</s-layout-header>
+            <s-layout>
+                <s-layout-sider style=" background:#3B3B98; width:200px;">sider</s-layout-sider>
+                <s-layout-content style="height: 100px; background:#9AECDB;">content</s-layout-content>
+            </s-layout>
+            <s-layout-footer style="height: 50px; background:#58B19F">footer</s-layout-footer>
         </s-Layout>
+        <br>
+        <br>
+        <s-layout style="color: white; overflow:hidden;">
+            <s-layout-sider style=" background:#fff200; width:200px;">
+                sider
+            </s-layout-sider>
+            <s-layout>
+                <s-layout-header style="height: 50px; background:#ffaf40;">
+                    header
+                </s-layout-header>
+                <s-layout-content style="height: 100px; background:#32ff7e;">
+                    content
+                </s-layout-content>
+                <s-layout-footer style="height: 50px; background:#3ae374;">
+                    footer
+                </s-layout-footer>
+            </s-layout>
+        </s-layout>
+        <br>
+        <br>
+        <s-layout style="color: white; overflow:hidden;">
+            <s-layout-header style="height: 50px; background:#70a1ff;">
+                header
+            </s-layout-header>
+            <s-layout-content style="height: 100px; background:#2ed573;">
+                content
+            </s-layout-content>
+            <s-layout-footer style="height: 50px; background:#5352ed">
+                footer
+            </s-layout-footer>
+        </s-layout>
     </div>
     <script src="./src/app.js"></script>
 </body>
