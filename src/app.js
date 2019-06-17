@@ -12,6 +12,7 @@ import LayoutHeader from './layout/layout-header'
 import LayoutSider from './layout/layout-sider'
 import LayoutContent from './layout/layout-content'
 import LayoutFooter from './layout/layout-footer'
+import Upload from './picture-bed/upload'
 
 import chai from 'chai'
 import spies from 'chai-spies'
@@ -31,6 +32,7 @@ Vue.component('s-layout-header',LayoutHeader)
 Vue.component('s-layout-sider',LayoutSider)
 Vue.component('s-layout-footer',LayoutFooter)
 Vue.component('s-layout-content',LayoutContent)
+Vue.component('s-upload',Upload)
 
 new Vue({
     el: '#app',
