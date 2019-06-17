@@ -3,10 +3,10 @@
     <input id="fileload" type="file" @change="preview($event);" multiple name="upload">
     <input type="button" value="取消" @click="call();">
     <h2>预览</h2>
-    <div style="width: 400px;height: 400px;border: 1px solid red;" v-for="url in backgroundUrl">
-      <!--设置一个框放图片-->
-      <img id="image" width="100%" height="100%" :src="url">
-      <!--放图片的标签-->
+    <div v-for="url in backgroundUrl"  class="xxx">
+      <!--放置背景圖片，防止圖片變形-->
+      <div style="width: 100px;height: 100px;border: 1px solid #ddd;"
+      :style="{background:`url(${url}) no-repeat  center/cover`}" ></div>
     </div>
     <!-- <slot></slot>
     <s-button>预览</s-button>-->
@@ -64,10 +64,11 @@ export default {
     },
     
     call() {
+        this.backgroundUrl.pop()
       //将img的src属性赋值为空串
-      document.getElementById("image").src = "";
-      //选择文件框的value属性赋值为空串
-      document.getElementById("fileload").value = "";
+    //   document.getElementById("image").src = "";
+    //   //选择文件框的value属性赋值为空串
+    //   document.getElementById("fileload").value = "";
     }
   }
 };
@@ -85,6 +86,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.xxx {
+    display: inline-flex;
+}
 </style>
 
 
