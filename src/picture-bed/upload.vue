@@ -92,6 +92,10 @@ export default {
         formData.append("attachment", this.file[i]);
       }
       let submitUrl = this.uploadurl;
+      if(this.backgroundUrl.length===0){
+       console.log('未上传文件')
+        return
+      }else{
       axios
         .post(submitUrl, formData, {
           header: {
@@ -106,6 +110,7 @@ export default {
           console.log(err);
           console.log("上传失败");
         });
+        }
     }
   }
 };

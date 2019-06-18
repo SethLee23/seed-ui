@@ -13,9 +13,12 @@ import LayoutSider from './layout/layout-sider'
 import LayoutContent from './layout/layout-content'
 import LayoutFooter from './layout/layout-footer'
 import Upload from './picture-bed/upload'
-
 import chai from 'chai'
 import spies from 'chai-spies'
+
+import plugin from './toast/plugin'
+
+Vue.use(plugin)
 
 chai.use(spies)
 
@@ -41,9 +44,14 @@ new Vue({
       selectedTab: 'woman',
 
     },
+    created(){
+    },
     methods: {
       sayHi(){
         console.log('hihihi')
+      },
+      test(){
+        this.$toast('我是 toast')
       },
       yyy(){
         // console.log(123)
