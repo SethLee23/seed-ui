@@ -22,39 +22,48 @@ Vue.use(plugin)
 
 chai.use(spies)
 
-Vue.component('s-button',Button)
-Vue.component('s-button-group',ButtonGroup)
-Vue.component('s-input',Input)
-Vue.component('s-tabs',Tabs)
-Vue.component('s-tabs-head',TabsHead)
-Vue.component('s-tabs-item',TabsItem)
-Vue.component('s-tabs-pane',TabsPane)
-Vue.component('s-tabs-body',TabsBody)
-Vue.component('s-layout',Layout)
-Vue.component('s-layout-header',LayoutHeader)
-Vue.component('s-layout-sider',LayoutSider)
-Vue.component('s-layout-footer',LayoutFooter)
-Vue.component('s-layout-content',LayoutContent)
-Vue.component('s-upload',Upload)
+Vue.component('s-button', Button)
+Vue.component('s-button-group', ButtonGroup)
+Vue.component('s-input', Input)
+Vue.component('s-tabs', Tabs)
+Vue.component('s-tabs-head', TabsHead)
+Vue.component('s-tabs-item', TabsItem)
+Vue.component('s-tabs-pane', TabsPane)
+Vue.component('s-tabs-body', TabsBody)
+Vue.component('s-layout', Layout)
+Vue.component('s-layout-header', LayoutHeader)
+Vue.component('s-layout-sider', LayoutSider)
+Vue.component('s-layout-footer', LayoutFooter)
+Vue.component('s-layout-content', LayoutContent)
+Vue.component('s-upload', Upload)
 
 new Vue({
-    el: '#app',
-    data: {
-      message: '11111',
-      selectedTab: 'woman',
+  el: '#app',
+  data: {
+    message: '11111',
+    selectedTab: 'woman',
 
+  },
+  created() {},
+  methods: {
+    sayHi() {
+      console.log('hihihi')
     },
-    created(){
+    test() {
+      this.$toast({
+        toastMsg: '<strong style="color:red;">我是toast</strong>',
+        autoClose: 10,
+        enableHTML: true,
+        closeButton: {
+          closeText: 'bye',
+          callbacks: () => {
+            console.log('我是回调，我被调用了')
+          }
+        }
+      })
     },
-    methods: {
-      sayHi(){
-        console.log('hihihi')
-      },
-      test(){
-        this.$toast({toastMsg:'<strong style="color:red;">我是toast</strong>',autoClose:10,enableHTML:true})
-      },
-      yyy(){
-        // console.log(123)
-      }
+    yyy() {
+
     }
-  })
+  }
+})

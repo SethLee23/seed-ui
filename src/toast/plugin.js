@@ -7,6 +7,7 @@ export default {
         Vue.prototype.$toast = function (clientOptions) {
             if (toast) {
                 toast.$el.remove()
+                toast.$destroy()
             }
             let constructor = Vue.extend(Toast)
             toast = new constructor({
