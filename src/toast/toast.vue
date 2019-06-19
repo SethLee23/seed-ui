@@ -7,7 +7,7 @@
         <slot></slot>
       </div>
       <div class="line" ref="line"></div>
-      <div class="closeContent" @click="close">{{closeButton.closeText}}</div>
+      <div class="closeContent" @click="clickClose">{{closeButton.closeText}}</div>
     </div>
   </div>
 </template>
@@ -63,13 +63,18 @@ export default {
     });
   },
   methods: {
+    //   此处关闭和关闭后调用回调分开
     close() {
-      this.showToast = false
-      console.log(this.closeButton.callbacks)
-      this.closeButton.callbacks();
-      if (this.closeButton && this.callback) {
+      this.$el.remove();
+      this.$destroy();
+    },
+    clickClose() {
+      this.close();
+      if (this.closeButton &&
+        typeof this.closeButton.callbacks === "function"
+      ) {
+        this.closeButton.callbacks();
       }
-      //   this.$emit('click')
     }
   },
   computed: {
@@ -108,11 +113,11 @@ $background-color: rgba(0, 0, 0, 0.75);
     padding: 0 16px;
   }
   .line {
-    border-left: 1px solid red;
+    border-left: 1px solid rgb(143,143,143);
     margin: 0 1em;
   }
   .closeContent {
-      cursor: pointer;
+    cursor: pointer;
   }
 }
 </style>

@@ -51,7 +51,7 @@ new Vue({
     },
     test() {
       this.$toast({
-        toastMsg: '<strong style="color:red;">我是toast</strong>',
+        toastMsg: '<strong>我是toast</strong>',
         autoClose: 10,
         enableHTML: true,
         closeButton: {
