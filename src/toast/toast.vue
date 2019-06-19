@@ -148,7 +148,7 @@ $background-color: rgba(0, 0, 0, 0.75);
     > .wrapper {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      animation: slide-up linear 0.3s;
+      animation: slide-right linear 0.3s;
     }
   }
   &.position-right {
@@ -158,7 +158,7 @@ $background-color: rgba(0, 0, 0, 0.75);
     > .wrapper {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      animation: slide-up linear 0.3s;
+      animation: slide-left linear 0.3s;
     }
   }
   &.position-center {
@@ -196,6 +196,26 @@ $background-color: rgba(0, 0, 0, 0.75);
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>

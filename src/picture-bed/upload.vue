@@ -1,5 +1,6 @@
 <template>
   <div>
+     <h3>李思情的照片墙</h3>
     <div class="wrapper" style="display:flex;">
       <div v-for="url in backgroundUrl"  class="xxx">
         <!--3.放置背景圖片，防止圖片變形-->
