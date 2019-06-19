@@ -49,11 +49,68 @@ new Vue({
     sayHi() {
       console.log('hihihi')
     },
-    test() {
+    testTop() {
       this.$toast({
-        toastMsg: '<strong>我是toast</strong>',
+        toastMsg: '我是toast',
         autoClose: 10,
-        enableHTML: true,
+        enableHTML: false,
+        toastPosition: 'top',
+        closeButton: {
+          closeText: 'bye',
+          callbacks: () => {
+            console.log('我是回调，我被调用了')
+          }
+        }
+      })
+    },
+    testLeft() {
+      this.$toast({
+        toastMsg: '我是toast',
+        autoClose: 10,
+        enableHTML: false,
+        toastPosition: 'left',
+        closeButton: {
+          closeText: 'bye',
+          callbacks: () => {
+            console.log('我是回调，我被调用了')
+          }
+        }
+      })
+    },
+    testRight() {
+      this.$toast({
+        toastMsg: '我是toast',
+        autoClose: 10,
+        enableHTML: false,
+        toastPosition: 'right',
+        closeButton: {
+          closeText: 'bye',
+          callbacks: () => {
+            console.log('我是回调，我被调用了')
+          }
+        }
+      })
+    },
+    testBottom() {
+      this.$toast({
+        toastMsg: '我是toast',
+        autoClose: 10,
+        enableHTML: false,
+        toastPosition: 'bottom',
+        closeButton: {
+          closeText: 'bye',
+          callbacks: () => {
+            console.log('我是回调，我被调用了')
+          }
+        }
+      })
+    },
+    testCenter() {
+      this.$toast({
+        toastMsg: '我是toast',
+        autoClose: 10,
+        enableHTML: false,
+        toastPosition: 'center',
         closeButton: {
           closeText: 'bye',
           callbacks: () => {

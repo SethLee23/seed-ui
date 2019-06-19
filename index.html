@@ -36,6 +36,9 @@
         .sTabs {
             margin: 10px;
         }
+        .toast>button {
+            margin: 0 10px;
+        }
     </style>
 </head>
 
@@ -96,7 +99,13 @@
             {{selectedTab}}
         </div>
         <s-upload uploadurl="https://easy-mock.com/mock/5d08939197ae0a474a534950/file/addfile"></s-upload>
-        <s-button @click="test" >测试</s-button>
+        <div style="display: flex;" class="toast">
+        <s-button @click="testTop">上</s-button>
+        <s-button @click="testBottom">下</s-button>
+        <s-button @click="testLeft">左</s-button>
+        <s-button @click="testRight">右</s-button>
+        <s-button @click="testCenter">中</s-button>
+    </div>
     </div>
     <script src="./src/app.js"></script>
 </body>

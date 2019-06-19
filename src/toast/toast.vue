@@ -1,5 +1,5 @@
 <template>
-  <div class="toast" :class="classes" v-if="showToast">
+  <div class="toast" :class="classes">
     <!-- <slot>要替换</slot> -->
     <div class="wrapper" ref="toast">
       <div ref="content" v-if="enableHTML" v-html="toastMsg"></div>
@@ -17,16 +17,14 @@ import Vue from "vue";
 export default {
   name: "sToast",
   data() {
-    return {
-      showToast: true
-    };
+    return {};
   },
   props: {
     toastPosition: {
       type: String,
       default: "top",
       validator(value) {
-        return ["top", "bottom", "center"].indexOf(value) >= 0;
+        return ["top", "bottom", "center", "left", "right"].indexOf(value) >= 0;
       }
     },
     toastMsg: {
@@ -70,7 +68,8 @@ export default {
     },
     clickClose() {
       this.close();
-      if (this.closeButton &&
+      if (
+        this.closeButton &&
         typeof this.closeButton.callbacks === "function"
       ) {
         this.closeButton.callbacks();
@@ -80,7 +79,7 @@ export default {
   computed: {
     classes() {
       return {
-        [`position-${this.position}`]: true
+        [`position-${this.toastPosition}`]: true
       };
     }
   }
@@ -95,9 +94,7 @@ $border-radius: 4px;
 $background-color: rgba(0, 0, 0, 0.75);
 .toast {
   position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+
   > .wrapper {
     display: flex;
     align-items: center;
@@ -113,11 +110,92 @@ $background-color: rgba(0, 0, 0, 0.75);
     padding: 0 16px;
   }
   .line {
-    border-left: 1px solid rgb(143,143,143);
+    border-left: 1px solid rgb(143, 143, 143);
     margin: 0 1em;
+    margin-right: 0;
   }
   .closeContent {
     cursor: pointer;
+    // border: 1px solid red;
+    padding-left: 16px;
+  }
+  &.position-top {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    transition: all 0.3s;
+    > .wrapper {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      animation: slide-down 0.3s;
+    }
+  }
+  &.position-bottom {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    transition: all 0.3s;
+    > .wrapper {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slide-up linear 0.3s;
+    }
+  }
+  &.position-left {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    > .wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      animation: slide-up linear 0.3s;
+    }
+  }
+  &.position-right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    > .wrapper {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slide-up linear 0.3s;
+    }
+  }
+  &.position-center {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    transition: all 0.3s;
+    animation: fadeIn linear 0.3s;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
