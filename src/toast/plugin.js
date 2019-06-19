@@ -9,7 +9,11 @@ export default {
                 toast.$el.remove()
             }
             let constructor = Vue.extend(Toast)
-            toast = new constructor()
+            toast = new constructor({
+                propsData:{
+                  autoClose: clientOptions.autoClose  
+                }
+            })
             toast.$slots.default = [str]
             toast.$mount()
             document.body.appendChild(toast.$el)

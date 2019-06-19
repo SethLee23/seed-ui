@@ -51,7 +51,7 @@ new Vue({
         console.log('hihihi')
       },
       test(){
-        this.$toast('我是 toast')
+        this.$toast('我是 toast',{autoClose:10})
       },
       yyy(){
         // console.log(123)
