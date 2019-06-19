@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wrapper" style="display:flex;">
-      <div v-for="url in backgroundUrl" :key="url" class="xxx">
+      <div v-for="url in backgroundUrl"  class="xxx">
         <!--3.放置背景圖片，防止圖片變形-->
         <div class="item" :style="{background:`url(${url}) no-repeat  center/cover`}"></div>
       </div>
@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       backgroundUrl: [],
-      file: null
+      file: null,
+      wrongFile: false,
     };
   },
   props: {
@@ -43,14 +44,16 @@ export default {
       var fileType = file.type.split("/")[0];
       if (fileType != "image") {
         alert("请上传图片");
-        return;
+        this.wrongFile = true
+        return
       }
     },
     checkSize(file) {
       var fileSize = Math.round(file.size / 1024 / 1024);
       if (fileSize >= 3) {
         alert("请上传小于少于3M的图片");
-        return;
+        this.wrongFile = true
+        return
       }
     },
     transformUrl(file) {
@@ -73,6 +76,10 @@ export default {
         this.checkType(file[i]);
         //1.4 进行文件fileSize的判断
         this.checkSize(file[i]);
+      if(this.wrongFile){
+        this.wrongFile = false
+        return
+      }
         //1.5 读取文件，转换为 url
         this.transformUrl(file[i]);
       }
