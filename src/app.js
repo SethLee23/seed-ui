@@ -51,7 +51,7 @@ new Vue({
         console.log('hihihi')
       },
       test(){
-        this.$toast('我是 toast',{autoClose:10})
+        this.$toast({toastMsg:'<strong style="color:red;">我是toast</strong>',autoClose:10,enableHTML:true})
       },
       yyy(){
         // console.log(123)
