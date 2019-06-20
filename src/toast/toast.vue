@@ -2,9 +2,9 @@
   <div class="toast" :class="classes">
     <!-- <slot>要替换</slot> -->
     <div class="wrapper" ref="toast">
-      <div ref="content" v-if="enableHTML" v-html="toastMsg"></div>
+      <div ref="content" v-if="enableHTML" v-html="toastMsg" class="123"></div>
       <div v-else>
-        <slot></slot>
+        <div v-text="toastMsg" class="textContent"></div>
       </div>
       <div class="line" ref="line"></div>
       <div class="closeContent" @click="clickClose">{{closeButton.closeText}}</div>
@@ -36,7 +36,7 @@ export default {
     },
     enableHTML: {
       type: Boolean,
-      default: false
+      default: false,
     },
     closeButton: {
       type: Object,
@@ -57,7 +57,6 @@ export default {
     this.$nextTick(() => {
       let { height, top } = this.$refs.toast.getBoundingClientRect();
       this.$refs.line.style.height = height + "px";
-      let { left } = this.$refs.line.getBoundingClientRect();
     });
   },
   methods: {

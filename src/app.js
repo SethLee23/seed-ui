@@ -51,9 +51,9 @@ new Vue({
     },
     testTop() {
       this.$toast({
-        toastMsg: '我是toast',
+        toastMsg: '<strong>我是toast</strong>',
         autoClose: 10,
-        enableHTML: false,
+        enableHTML: true,
         toastPosition: 'top',
         closeButton: {
           closeText: 'bye',

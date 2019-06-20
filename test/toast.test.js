@@ -11,52 +11,72 @@ describe('Toast', () => {
         expect(Toast).to.exist
     })
     //分组，接收参数，测试参数
-    // describe('props', () => {
-    //     it('可以接收autoclose', (done) => {
-    //         let Constructor = Vue.extend(Toast)
-    //         let vm = new Constructor({
-    //             propsData: {
-    //                 autoClose: 1,
-    //             }
-    //         }).$mount()
-    //         vm.$on('close',()=>{
-    //             expect(document.body.contains(vm.$el)).to.eq(false) 
-    //             done()
-    //         })
-    //     })
-    //     it('可以接收closeButton', () => {
-    //         const callback = sinon.fake();
-    //         let Constructor = Vue.extend(Toast)
-    //         let vm = new Constructor({
-    //             propsData: {
-    //                 closeButton: {
-    //                   text: '关闭',
-    //                   callback,
-    //                 },
-    //               }
-    //         }).$mount()
-    //        let closeButton = vm.$el.querySelector('.close')
-    //        expect(closeButton.textContent.trim()==='关闭').to.be.ok
-    //        closeButton.click()
-    //        expect(callback).to.have.been.called
-    //     })
-    //     it('接受 enableHtml', () => {
-    //         const Constructor = Vue.extend(Toast)
-    //         const vm = new Constructor({
-    //           propsData: {enableHtml: true}
-    //         })
-    //         vm.$slots.default = ['<strong id="test">hi</strong>']
-    //         vm.$mount()
-    //         let strong = vm.$el.querySelector('#test')
-    //         expect(strong).to.exist
-    //       })
-    //     it('接受 position', () => {
-    //         const Constructor = Vue.extend(Toast)
-    //         const vm = new Constructor({
-    //           propsData: {position: 'middle'}
-    //         }).$mount()
-    //         expect(vm.$el.classList.contains('position-middle')).to.be.ok
-    //       })
-    // })
+    describe('props', () => {
+        it('可以接收autoclose', (done) => {
+            let Constructor = Vue.extend(Toast)
+            let vm = new Constructor({
+                propsData: {
+                    autoClose: 1,
+                }
+            }).$mount()
+            // console.log(vm.$el.querySelector('.closeContent'))
+            let btn = vm.$el.querySelector('.closeContent')
+            setTimeout(() => {
+                let event = new Event('click');
+                btn.dispatchEvent(event)
+                vm.$nextTick(() => {
+                    expect(document.body.contains(vm.$el)).to.eq(false)
+                    done()
+                })
+            }, 200)
+        })
+        it('可以接收closeButton', () => {
+            const callbacks = sinon.fake();
+            let Constructor = Vue.extend(Toast)
+            let vm = new Constructor({
+                propsData: {
+                    closeButton: {
+                        closeText: '关闭',
+                        callbacks,
+                    },
+                }
+            }).$mount()
+            let btn = vm.$el.querySelector('.closeContent')
+            expect(btn.textContent.trim() === '关闭').to.be.ok
+            btn.click()
+            expect(callbacks).to.have.been.called
+        })
+        it('可以接收 toastMsg', () => {
+            let Constructor = Vue.extend(Toast)
+            let vm = new Constructor({
+                propsData: {
+                    // enableHTML: false,
+                    toastMsg: '我是toast',
+                }
+            }).$mount()
+            let textContent = vm.$el.querySelector('.textContent')
+            expect(textContent.innerText.trim() === '我是toast').to.be.ok
+        })
+        it('接受 enableHtml', () => {
+            const Constructor = Vue.extend(Toast)
+            const vm = new Constructor({
+                propsData: {
+                    enableHTML: true,
+                    toastMsg: '<strong id="test">我是toast</strong>'
+                }
+            }).$mount()
+            let strong = vm.$el.querySelector('#test')
+            expect(strong).to.exist
+        })
+        it('接受 position', () => {
+            const Constructor = Vue.extend(Toast)
+            const vm = new Constructor({
+                propsData: {
+                    toastPosition: 'bottom'
+                }
+            }).$mount()
+            expect(vm.$el.classList.contains('position-bottom')).to.be.ok
+        })
+    })
 
 })

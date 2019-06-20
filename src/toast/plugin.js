@@ -18,7 +18,7 @@ function createToast(Vue, clientOptions) {
     let toast = new constructor({
         propsData: clientOptions,
     })
-    toast.$slots.default = clientOptions.toastMsg
+    // toast.$slots.default = clientOptions.toastMsg
     toast.$mount()
     document.body.appendChild(toast.$el)
     return toast

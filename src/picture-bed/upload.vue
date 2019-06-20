@@ -1,6 +1,6 @@
 <template>
   <div>
-     <h3>李思情的照片墙</h3>
+     <h3>照片墙</h3>
     <div class="wrapper" style="display:flex;">
       <div v-for="url in backgroundUrl"  class="xxx">
         <!--3.放置背景圖片，防止圖片變形-->
@@ -18,8 +18,8 @@
         <s-icon name="plus"></s-icon>
       </div>
     </div>
-    <div class="buttonGroup">
-    <s-button types="success" @click="submit">上传</s-button>
+    <div class="buttonGroup"> 
+    <s-button types="success" @click="submit" ref="submit">上传</s-button>
     <s-button types="success" @click="call">取消</s-button>
     </div>
   </div>
