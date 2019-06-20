@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :class="rowStyle">
+  <div class="row" :style="rowStyle">
     <div class="wrapper">
       <slot></slot>
     </div>
@@ -12,10 +12,19 @@ export default {
   props: {
     gutter: {
       type: [Number, String]
+    },
+    align: {
+
     }
   },
   computed: {
-
+    rowStyle() {
+      let { gutter } = this;
+      return {
+        marginLeft: -gutter / 2 + "px",
+        marginRight: -gutter / 2 + "px"
+      };
+    }
   },
   mounted() {
     this.$children.forEach(vm => {
@@ -30,10 +39,8 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid black;
 }
 .row {
- margin-left: -15px;
- margin-right: -15px;
+
 }
 </style>
