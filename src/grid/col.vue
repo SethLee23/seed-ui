@@ -1,5 +1,5 @@
 <template>
-  <div class="col" :class="`span-${span}`" :style="colStyle">
+  <div class="col" :class="[`span-${span}`,`align-${colAlign}`]" :style="colStyle">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,8 @@ export default {
   name: "sCol",
   data() {
     return {
-      gutter: 0
+      gutter: 0,
+      colAlign: ""
     };
   },
   computed: {
@@ -25,7 +26,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      console.log(this.gutter);
+      //   console.log(this.gutter);
+      //   console.log(this.$children)
+      console.log(this.colAlign);
     });
   },
   props: {
@@ -38,11 +41,23 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-//   border: 1px solid blue;
+  //   border: 1px solid blue;
   @for $i from 1 to 24 {
     &.span-#{$i} {
       width: $i/24 * 100%;
     }
+  }
+  & > div {
+    display: flex;
+  }
+  &.align-center > div {
+    justify-content: center;
+  }
+  &.align-left > div {
+    justify-content: flex-start;
+  }
+  &.align-right > div {
+    justify-content: flex-end;
   }
 }
 // $class-prefix: col-

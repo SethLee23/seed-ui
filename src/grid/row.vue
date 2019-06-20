@@ -13,8 +13,12 @@ export default {
     gutter: {
       type: [Number, String]
     },
-    align: {
-
+    aligns: {
+     type: String,
+     default: 'start',
+     validator(value){
+       return ['left','center','right'].indexOf(value) >= 0  
+     }
     }
   },
   computed: {
@@ -29,6 +33,7 @@ export default {
   mounted() {
     this.$children.forEach(vm => {
       vm.gutter = this.gutter;
+      vm.colAlign = this.aligns
     });
   }
 };
@@ -39,8 +44,8 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+ 
 }
 .row {
-
 }
 </style>
