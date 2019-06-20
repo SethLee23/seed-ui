@@ -23,29 +23,49 @@ export default {
         background: "pink"
       };
     },
-    colClasses(){
-        return [
-            'span-'+this.span,
-            'offset-'+this.offset,
-            'align-'+this.colAlign
-            ]
+    colClasses() {
+      return [
+        "span-" + this.span,
+        "offset-" + this.offset,
+        "align-" + this.colAlign
+      ];
     }
   },
   mounted() {
     this.$nextTick(() => {
       //   console.log(this.gutter);
       //   console.log(this.$children)
-      console.log(this.colAlign);
+    //   console.log(this.colAlign);
     });
   },
   props: {
     span: {
-      type: String | Number,
+      type: String | Number
     },
     offset: {
-        type: String | Number,
-        default: 0,
+      type: String | Number,
+      default: 0
     },
+    ipad: {
+      type: Object,
+      validator(obj) {
+          let valid = false
+          let arr = Object.keys(obj)
+        //   for in 循环
+        // let arr = [];
+        // for (let key in obj) {
+        //   if (obj[key]) {
+        //     arr.push(key)
+        //   }
+        // }
+          arr.forEach((item)=>{
+           if(['span','offset'].includes(item)){
+               valid = true
+           }
+          })
+          return valid
+      }
+    }
   }
 };
 </script>

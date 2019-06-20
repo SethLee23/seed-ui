@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
@@ -121,7 +122,7 @@
     <br>
     <div>
         <s-row gutter="30" class="gutter" aligns="center">
-            <s-col span="8" class="col" ><div>8</div></s-col>
+            <s-col span="8" class="col" :ipad={span:12,offset:3}><div>8</div></s-col>
             <s-col span="8" class="col"><div>8</div></s-col>
             <s-col span="8" class="col"><div>8</div></s-col>
         </s-row>

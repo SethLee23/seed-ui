@@ -1,6 +1,6 @@
 <template>
-  <div class="row" :style="rowStyle">
-    <div class="wrapper">
+  <div class="row" >
+    <div class="wrapper" :style="rowStyle">
       <slot></slot>
     </div>
   </div>
@@ -41,11 +41,10 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
- 
 }
 .row {
+    overflow: hidden;
 }
 </style>
