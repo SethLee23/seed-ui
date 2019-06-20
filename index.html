@@ -39,6 +39,12 @@
         .toast>button {
             margin: 0 10px;
         }
+        .gutter {
+            /* border: 1px solid black; */
+        }
+        .gutter .col>div {
+          background: red;
+        }
     </style>
 </head>
 
@@ -105,6 +111,24 @@
         <s-button @click="testLeft">左</s-button>
         <s-button @click="testRight">右</s-button>
         <s-button @click="testCenter">中</s-button>
+    </div>
+    <hr>
+    <div>
+        <s-row gutter="30" class="gutter">
+            <s-col span="8" class="col"><div>8</div></s-col>
+            <s-col span="8" class="col"><div>8</div></s-col>
+            <s-col span="8" class="col"><div>8</div></s-col>
+        </s-row>
+        <!-- <s-row gutter="30" class="gutter">
+            <s-col span="6" class="col"><div>6111111111111111</div></s-col>
+            <s-col span="6" class="col"><div>6111111111111111</div></s-col>
+            <s-col span="6" class="col"><div>6111111111111111</div></s-col>
+            <s-col span="6" class="col"><div>6111111111111111</div></s-col>
+        </s-row>
+        <s-row gutter="30" class="gutter">
+            <s-col span="12" class="col">12</s-col>
+            <s-col span="12" class="col">12</s-col>
+        </s-row> -->
     </div>
     </div>
     <script src="./src/app.js"></script>
