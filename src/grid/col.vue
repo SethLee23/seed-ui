@@ -1,5 +1,5 @@
 <template>
-  <div class="col" :class="[`span-${span}`,`align-${colAlign}`]" :style="colStyle">
+  <div class="col" :class="colClasses" :style="colStyle">
     <slot></slot>
   </div>
 </template>
@@ -22,6 +22,13 @@ export default {
         paddingRight: this.gutter / 2 + "px",
         background: "pink"
       };
+    },
+    colClasses(){
+        return [
+            'span-'+this.span,
+            'offset-'+this.offset,
+            'align-'+this.colAlign
+            ]
     }
   },
   mounted() {
@@ -33,8 +40,12 @@ export default {
   },
   props: {
     span: {
-      type: String | Number
-    }
+      type: String | Number,
+    },
+    offset: {
+        type: String | Number,
+        default: 0,
+    },
   }
 };
 </script>
@@ -47,8 +58,14 @@ export default {
       width: $i/24 * 100%;
     }
   }
+  @for $i from 1 to 24 {
+    &.offset-#{$i} {
+      margin-left: $i/24 * 100%;
+    }
+  }
   & > div {
     display: flex;
+    border: 1px solid red;
   }
   &.align-center > div {
     justify-content: center;
