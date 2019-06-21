@@ -24,18 +24,36 @@ export default {
       };
     },
     colClasses() {
+      let { span,offset,ipad,narrowPc,pc,widePc,colAlign,createClasses } = this;
       return [
-        "span-" + this.span,
-        "offset-" + this.offset,
-        "align-" + this.colAlign
+        // span && "span-" + span,
+        span&&`span-${span}`,
+        offset && `offset-${offset}`,
+        colAlign && "align-" + colAlign,
+        ...createClasses('ipad',ipad)
+        // ...(ipad ? [`ipad-span-${ipad.span}`,`ipad-offset-${ipad.offset}`]:[]),
+        // ...(narrowPc ? [`narrowPc-span-${narrowPc.span}`,`narrowPc-offset-${narrowPc.offset}`]:[]),
+        // ...(pc ? [`pc-span-${pc.span}`,`pc-offset-${pc.offset}`]:[]),
+        // ...(widePc ? [`widePc-span-${widePc.span}`,`widePc-offset-${widePc.offset}`]:[]),
       ];
     }
   },
+  methods: {
+   createClasses(str,obj){
+      if(obj){
+      return[
+      `${str}-span-${obj.span}`,  
+      `${str}-offset-${obj.offset}`,  
+      ]
+    }else{
+      return []
+    }
+   }
+  },
   mounted() {
     this.$nextTick(() => {
-      //   console.log(this.gutter);
-      //   console.log(this.$children)
-    //   console.log(this.colAlign);
+      //   console.log(this.colAlign);
+      console.log(this.ipad);
     });
   },
   props: {
@@ -49,8 +67,8 @@ export default {
     ipad: {
       type: Object,
       validator(obj) {
-          let valid = false
-          let arr = Object.keys(obj)
+        let valid = false;
+        let arr = Object.keys(obj);
         //   for in 循环
         // let arr = [];
         // for (let key in obj) {
@@ -58,12 +76,12 @@ export default {
         //     arr.push(key)
         //   }
         // }
-          arr.forEach((item)=>{
-           if(['span','offset'].includes(item)){
-               valid = true
-           }
-          })
-          return valid
+        arr.forEach(item => {
+          if (["span", "offset"].includes(item)) {
+            valid = true;
+          }
+        });
+        return valid;
       }
     }
   }
