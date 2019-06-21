@@ -5,6 +5,23 @@
 </template>
 
 <script>
+let validator = obj => {
+  let valid = false;
+  let arr = Object.keys(obj);
+  //   for in 循环
+  // let arr = [];
+  // for (let key in obj) {
+  //   if (obj[key]) {
+  //     arr.push(key)
+  //   }
+  // }
+  arr.forEach(item => {
+    if (["span", "offset"].includes(item)) {
+      valid = true;
+    }
+  });
+  return valid;
+};
 export default {
   name: "sCol",
   data() {
@@ -15,46 +32,40 @@ export default {
   },
   computed: {
     colStyle() {
+      let { gutter } = this;
       return {
-        //   paddingLeft: this.gutter/2 +'px',
-        //   paddingRight: this.gutter/2 +'px',
-        paddingLeft: this.gutter / 2 + "px",
-        paddingRight: this.gutter / 2 + "px",
+        paddingLeft: gutter / 2 + "px",
+        paddingRight: gutter / 2 + "px",
         background: "pink"
       };
     },
     colClasses() {
-      let { span,offset,ipad,narrowPc,pc,widePc,colAlign,createClasses } = this;
+      let {
+        span,offset,ipad,narrowPc,pc,widePc,colAlign,createClasses
+      } = this;
       return [
         // span && "span-" + span,
-        span&&`span-${span}`,
+        span && `span-${span}`,
         offset && `offset-${offset}`,
         colAlign && "align-" + colAlign,
-        ...createClasses('ipad',ipad)
-        // ...(ipad ? [`ipad-span-${ipad.span}`,`ipad-offset-${ipad.offset}`]:[]),
-        // ...(narrowPc ? [`narrowPc-span-${narrowPc.span}`,`narrowPc-offset-${narrowPc.offset}`]:[]),
-        // ...(pc ? [`pc-span-${pc.span}`,`pc-offset-${pc.offset}`]:[]),
-        // ...(widePc ? [`widePc-span-${widePc.span}`,`widePc-offset-${widePc.offset}`]:[]),
+        ...createClasses("ipad", ipad),
+        ...createClasses("narrowPc", narrowPc),
+        ...createClasses("pc", pc),
+        ...createClasses("widePc", widePc)
       ];
     }
   },
   methods: {
-   createClasses(str,obj){
-      if(obj){
-      return[
-      `${str}-span-${obj.span}`,  
-      `${str}-offset-${obj.offset}`,  
-      ]
-    }else{
-      return []
+    createClasses(str, obj) {
+      if (obj) {
+        return [`${str}-span-${obj.span}`, `${str}-offset-${obj.offset}`];
+      } else {
+        return [];
+      }
     }
-   }
   },
   mounted() {
-    this.$nextTick(() => {
-      //   console.log(this.colAlign);
-      console.log(this.ipad);
-    });
+    this.$nextTick(() => {});
   },
   props: {
     span: {
@@ -66,23 +77,19 @@ export default {
     },
     ipad: {
       type: Object,
-      validator(obj) {
-        let valid = false;
-        let arr = Object.keys(obj);
-        //   for in 循环
-        // let arr = [];
-        // for (let key in obj) {
-        //   if (obj[key]) {
-        //     arr.push(key)
-        //   }
-        // }
-        arr.forEach(item => {
-          if (["span", "offset"].includes(item)) {
-            valid = true;
-          }
-        });
-        return valid;
-      }
+      validator
+    },
+    narrowPc: {
+      type: Object,
+      validator
+    },
+    pc: {
+      type: Object,
+      validator
+    },
+    widePc: {
+      type: Object,
+      validator
     }
   }
 };
@@ -91,16 +98,18 @@ export default {
 <style lang="scss" scoped>
 .col {
   //   border: 1px solid blue;
-  @for $i from 1 to 24 {
+    @media (min-width: 0px) {
+  @for $i from 1 through 24 {
     &.span-#{$i} {
-      width: $i/24 * 100%;
+      width: ($i / 24) * 100%;
     }
   }
-  @for $i from 1 to 24 {
+  @for $i from 1 through 24 {
     &.offset-#{$i} {
-      margin-left: $i/24 * 100%;
+      margin-left: ($i / 24) * 100%;
     }
   }
+    }
   & > div {
     display: flex;
     border: 1px solid red;
@@ -113,6 +122,54 @@ export default {
   }
   &.align-right > div {
     justify-content: flex-end;
+  }
+  @media (min-width: 577px) {
+    @for $i from 1 through 24 {
+      &.ipad-span-#{$i} {
+        width: ($i / 24) * 100%;
+      }
+    }
+    @for $i from 1 through 24 {
+      &.ipad-offset-#{$i} {
+        margin-left: ($i / 24) * 100%;
+      }
+    }
+  }
+  @media (min-width: 769px) {
+    @for $i from 1 through 24 {
+      &.narrowPc-span-#{$i} {
+        width: ($i / 24) * 100%;
+      }
+    }
+    @for $i from 1 through 24 {
+      &.narrowPc-offset-#{$i} {
+        margin-left: ($i / 24) * 100%;
+      }
+    }
+  }
+  @media (min-width: 993px) {
+    @for $i from 1 through 24 {
+      &.pc-span-#{$i} {
+        width: ($i / 24) * 100%;
+      }
+    }
+    @for $i from 1 through 24 {
+      &.pc-offset-#{$i} {
+        margin-left: ($i / 24) * 100%;
+      }
+    }
+  }
+  @media (min-width: 1201px) {
+    @for $i from 1 through 24 {
+      &.widePc-span-#{$i} {
+        width: ($i / 24) * 100%;
+      }
+    }
+    @for $i from 1 through 24 {
+      &.widePc-offset-#{$i} {
+        margin-left: ($i / 24) * 100%;
+      }
+    }
   }
 }
 // $class-prefix: col-

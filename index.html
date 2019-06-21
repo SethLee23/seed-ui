@@ -121,12 +121,13 @@
     <hr>
     <br>
     <div>
-        <s-row gutter="30" class="gutter" aligns="center">
-            <s-col span="8" class="col" :ipad={span:12,offset:3}><div>8</div></s-col>
-            <s-col span="8" class="col"><div>8</div></s-col>
-            <s-col span="8" class="col"><div>8</div></s-col>
+        <s-row class="gutter" aligns="center">
+            <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
+            <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
+            <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
+            <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
         </s-row>
-        <!-- <s-row class="gutter">
+        <s-row class="gutter">
             <s-col span="8" class="col"><div>8</div></s-col>
             <s-col span="8" class="col" offset="8"><div>8</div></s-col>
         </s-row>
@@ -139,7 +140,7 @@
         <s-row gutter="20" class="gutter">
             <s-col span="12" class="col"><div>12</div></s-col>
             <s-col span="12" class="col"><div>12</div></s-col>
-        </s-row> -->
+        </s-row>
     </div>
     </div>
     <script src="./src/app.js"></script>
