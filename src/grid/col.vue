@@ -58,7 +58,16 @@ export default {
   methods: {
     createClasses(str, obj) {
       if (obj) {
-        return [`${str}-span-${obj.span}`, `${str}-offset-${obj.offset}`];
+        let arr = []
+        if(obj.span){
+          arr.push(`${str}-span-${obj.span}`)
+        }
+        if(obj.offset){
+          arr.push(`${str}-offset-${obj.offset}`)
+        }
+        return arr
+        // return [`${str}-span-${obj.span}`, 
+        // `${str}-offset-${obj.offset}`];
       } else {
         return [];
       }
@@ -99,7 +108,7 @@ export default {
 .col {
   //   border: 1px solid blue;
     @media (min-width: 0px) {
-  @for $i from 1 through 24 {
+    @for $i from 1 through 24 {
     &.span-#{$i} {
       width: ($i / 24) * 100%;
     }
