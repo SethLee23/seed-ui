@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
@@ -37,17 +38,20 @@
         .sTabs {
             margin: 10px;
         }
+
         .toast>button {
             margin: 0 10px;
         }
+
         .gutter {
             /* border: 1px solid black; */
             margin: 10px 0;
         }
+
         .gutter .col>div {
-          background: rgb(53,175,251);
-          /* text-align: center; */
-          
+            background: rgb(53, 175, 251);
+            /* text-align: center; */
+
         }
     </style>
 </head>
@@ -109,18 +113,18 @@
             {{selectedTab}}
         </div>
         <hr>
-    <br>
+        <br>
         <s-upload uploadurl="https://easy-mock.com/mock/5d08939197ae0a474a534950/file/addfile"></s-upload>
         <div style="display: flex;" class="toast">
-        <s-button @click="testTop">上</s-button>
-        <s-button @click="testBottom">下</s-button>
-        <s-button @click="testLeft">左</s-button>
-        <s-button @click="testRight">右</s-button>
-        <s-button @click="testCenter">中</s-button>
-    </div>
-    <hr>
-    <br>
-    <div>
+            <s-button @click="testTop">上</s-button>
+            <s-button @click="testBottom">下</s-button>
+            <s-button @click="testLeft">左</s-button>
+            <s-button @click="testRight">右</s-button>
+            <s-button @click="testCenter">中</s-button>
+        </div>
+        <hr>
+        <br>
+        <!-- <div>
         <s-row class="gutter" aligns="center">
             <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
             <s-col span="24" class="col" :ipad={span:8} :pc={span:6}><div>8</div></s-col>
@@ -141,7 +145,17 @@
             <s-col span="12" class="col"><div>12</div></s-col>
             <s-col span="12" class="col"><div>12</div></s-col>
         </s-row>
-    </div>
+    </div> -->
+        <s-popover>
+            <!-- <template v-slot:contentWrapper><p>123</p></template>
+        <template v-slot:triggerWrapper><p>456</p></template> -->
+            <template v-slot:content>
+                我是浮层
+            </template>
+            <template v-slot:trigger>
+                <s-button>点击开启浮层</s-button>
+            </template>
+        </s-popover>
     </div>
     <script src="./src/app.js"></script>
 </body>

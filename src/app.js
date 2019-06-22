@@ -15,11 +15,10 @@ import LayoutFooter from './layout/layout-footer'
 import Upload from './picture-bed/upload'
 import chai from 'chai'
 import spies from 'chai-spies'
-
 import Row from './grid/row'
 import Col from './grid/col'
-
 import plugin from './toast/plugin'
+import Popover from './popover/popover'
 
 Vue.use(plugin)
 
@@ -41,6 +40,7 @@ Vue.component('s-layout-content', LayoutContent)
 Vue.component('s-upload', Upload)
 Vue.component('s-row', Row)
 Vue.component('s-col', Col)
+Vue.component('s-popover', Popover)
 
 new Vue({
   el: '#app',

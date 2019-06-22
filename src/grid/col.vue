@@ -106,7 +106,6 @@ export default {
 
 <style lang="scss" scoped>
 .col {
-  //   border: 1px solid blue;
     @media (min-width: 0px) {
     @for $i from 1 through 24 {
     &.span-#{$i} {
@@ -181,5 +180,4 @@ export default {
     }
   }
 }
-// $class-prefix: col-
 </style>

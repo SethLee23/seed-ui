@@ -53,7 +53,6 @@ describe('Row', () => {
             vm.$nextTick(() => {
                 let col = vm.$el.querySelector('.col')
                 expect(col.classList.contains('align-center')).to.equal(true)
-                // console.log(col.classList.contains('align-center'))
             })
         })
     })
