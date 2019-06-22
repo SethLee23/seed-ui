@@ -1,10 +1,10 @@
 <template>
   <div class="popover" :class="classes" @click="onClick">
-    <div class="contentWrapper" v-if="showPopover" ref="content">
-      <slot name="content" ></slot>
+    <div class="contentWrapper" v-if="visible" ref="content">
+      <slot name="content"></slot>
     </div>
-    <div class="triggerWrapper" @click="toggleShow"  ref="trigger">
-      <slot name="trigger"></slot>
+    <div class="triggerWrapper" @click="toggleShow" ref="trigger">
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
   name: "sPopover",
   data() {
     return {
-      showPopover: true,
+      visible: false
     };
   },
   props: {},
@@ -27,19 +27,36 @@ export default {
     onClick() {
       console.log(1);
     },
-    toggleShow(){
-     this.showPopover = !this.showPopover
+    appendContent() {
+      if (this.visible) {
+        this.$nextTick(() => {
+          let {width,height,top,left} = this.$refs.trigger.getBoundingClientRect()
+          console.log(width, height, top, left);
+          console.log(2222);
+          let content = this.$refs.content;
+          console.log(content);
+          document.body.appendChild(content)
+          this.$refs.content.style.top = top + window.scrollY + "px";
+        });
+      }
+    },
+    toggleShow() {
+      if (this.visible) {
+        this.close();
+      } else {
+        this.open();
+      }
+    },
+    close() {
+      this.visible = false;
+    },
+    open() {
+      this.visible = true;
+      this.appendContent()
     }
   },
   mounted() {
-    // this.$nextTick(()=>{
-      if(this.showPopover){
-        document.body.appendChild(this.$refs.content)
-      console.log(this.$refs)
-      let {width,height,top,left} = this.$refs.trigger.getBoundingClientRect()
-      this.$refs.content.style.top = top+window.scrollY+'px'
-      }
-    // })
+    // console.log(this.$refs)
   }
 };
 </script>
@@ -54,23 +71,26 @@ $border-radius: 4px;
   // position: relative;
 }
 .contentWrapper {
-  // bottom:100%;
   word-break: break-all;
   position: absolute;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  transform: translateY(-100%);
+  left: 0px;
   background: white;
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
   padding: 0.5em 1em;
   max-width: 20em;
-  // &::before{
-  //   display: block;
-  //   content: "";
-  //   border: 10px solid transparent;
-  //   position: absolute;
-  //   top: 100%;
-  //   left: 5px;
-  // }
-  &::after{
+  margin-top: -10px;
+  &::before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 5px;
+  }
+  &::after {
     display: block;
     content: "";
     border: 10px solid transparent;
@@ -80,7 +100,6 @@ $border-radius: 4px;
     left: 5px;
     transform: translateY(-1px);
   }
-  
 }
 .triggerWrapper {
   position: relative;
