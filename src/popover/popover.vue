@@ -1,9 +1,9 @@
 <template>
-  <div class="popover" :class="classes" @click="onClick">
+  <div class="popover" :class="classes" @click="onClick($event)">
     <div class="contentWrapper" v-if="visible" ref="content">
       <slot name="content"></slot>
     </div>
-    <div class="triggerWrapper" @click="toggleShow" ref="trigger">
+    <div class="triggerWrapper" ref="trigger">
       <slot></slot>
     </div>
   </div>
@@ -24,26 +24,65 @@ export default {
     }
   },
   methods: {
-    onClick() {
-      console.log(1);
+    onClick(e) {
+      console.log(e.target)
+      if(this.visible){
+      if(e.target === this.$refs.content){
+        return
+      }
+      }
+      this.visible = !this.visible
+      // if(e.target===)
+      // this.visible = !this.visible
+      // if(this.visible ==true){
+      //   console.log('if visible')
+      //   console.log(this.visible)
+      //   console.log(this.$refs.content)
+      //    // 浮层开启后监听事件
+      //    this.appendContent()
+      //   let eventHandler = (e)=>{
+      //     this.visible = false
+      //     document.removeEventListener('click',eventHandler)
+      //   }
+      //   setTimeout(()=>{
+      //    document.addEventListener('click',eventHandler)
+      //   },1)
+        
+      // }else{
+       
+      // }
+//       console.log(e.target)
+// if(!this.visible){
+//        this.open()
+        //  let eventHandler = (e)=>{
+        //    this.close()
+        //   document.removeEventListener('click',eventHandler)
+        // }
+        // this.$nextTick(()=>{
+        //  document.addEventListener('click',eventHandler)
+        // })
+      // }
+      // if(this.visible){
+      // this.close()
+      // console.log(this.visible)
+      // }
+
     },
     appendContent() {
-      if (this.visible) {
+      console.log('进来')
         this.$nextTick(() => {
           let {width,height,top,left} = this.$refs.trigger.getBoundingClientRect()
-          console.log(width, height, top, left);
-          console.log(2222);
           let content = this.$refs.content;
-          console.log(content);
-          document.body.appendChild(content)
+          document.body.appendChild(content);
           this.$refs.content.style.top = top + window.scrollY + "px";
         });
-      }
     },
     toggleShow() {
       if (this.visible) {
+        console.log('close')
         this.close();
       } else {
+        console.log('open')
         this.open();
       }
     },
@@ -52,11 +91,10 @@ export default {
     },
     open() {
       this.visible = true;
-      this.appendContent()
+      this.appendContent();
     }
   },
   mounted() {
-    // console.log(this.$refs)
   }
 };
 </script>
