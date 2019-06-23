@@ -19,6 +19,8 @@ import Row from './grid/row'
 import Col from './grid/col'
 import plugin from './toast/plugin'
 import Popover from './popover/popover'
+import Collapse from './collapse/collapse'
+import CollapseItem from './collapse/collapse-item'
 
 Vue.use(plugin)
 
@@ -41,13 +43,15 @@ Vue.component('s-upload', Upload)
 Vue.component('s-row', Row)
 Vue.component('s-col', Col)
 Vue.component('s-popover', Popover)
+Vue.component('s-collapse', Collapse)
+Vue.component('s-collapse-item', CollapseItem)
 
 new Vue({
   el: '#app',
   data: {
     message: '11111',
     selectedTab: 'woman',
-
+    selectedTab2: ['2','3'],
   },
   created() {},
   methods: {
