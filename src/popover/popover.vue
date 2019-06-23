@@ -1,5 +1,5 @@
 <template>
-  <div class="popover" :class="classes" @click="onClick($event)">
+  <div class="popover" :class="classes" @click="onClick($event)" ref="popover">
     <div class="contentWrapper" v-if="visible" ref="content">
       <slot name="content"></slot>
     </div>
@@ -24,78 +24,49 @@ export default {
     }
   },
   methods: {
+    eventHandler(e){
+            if (e.target === this.$refs.content) {
+              console.log("你点击的是content");
+              return;
+            }
+            this.close()
+    },
     onClick(e) {
-      console.log(e.target)
-      if(this.visible){
-      if(e.target === this.$refs.content){
-        return
-      }
-      }
-      this.visible = !this.visible
-      // if(e.target===)
-      // this.visible = !this.visible
-      // if(this.visible ==true){
-      //   console.log('if visible')
-      //   console.log(this.visible)
-      //   console.log(this.$refs.content)
-      //    // 浮层开启后监听事件
-      //    this.appendContent()
-      //   let eventHandler = (e)=>{
-      //     this.visible = false
-      //     document.removeEventListener('click',eventHandler)
-      //   }
-      //   setTimeout(()=>{
-      //    document.addEventListener('click',eventHandler)
-      //   },1)
-        
-      // }else{
-       
-      // }
-//       console.log(e.target)
-// if(!this.visible){
-//        this.open()
-        //  let eventHandler = (e)=>{
-        //    this.close()
-        //   document.removeEventListener('click',eventHandler)
-        // }
-        // this.$nextTick(()=>{
-        //  document.addEventListener('click',eventHandler)
-        // })
-      // }
-      // if(this.visible){
-      // this.close()
-      // console.log(this.visible)
-      // }
-
+       if (this.$refs.trigger.contains(e.target)) {
+        if (!this.visible) {
+          this.open();
+        } else {
+          this.close();
+        }
+       }
     },
     appendContent() {
-      console.log('进来')
-        this.$nextTick(() => {
-          let {width,height,top,left} = this.$refs.trigger.getBoundingClientRect()
-          let content = this.$refs.content;
-          document.body.appendChild(content);
-          this.$refs.content.style.top = top + window.scrollY + "px";
-        });
-    },
-    toggleShow() {
-      if (this.visible) {
-        console.log('close')
-        this.close();
-      } else {
-        console.log('open')
-        this.open();
-      }
+      console.log("进来");
+      this.$nextTick(() => {
+        let {
+          width,height,top,left
+        } = this.$refs.trigger.getBoundingClientRect();
+        let content = this.$refs.content;
+        document.body.appendChild(content);
+        this.$refs.content.style.top = top + window.scrollY + "px";
+      });
     },
     close() {
+      console.log('关闭')
       this.visible = false;
+      console.log("移除监听器");
+      document.removeEventListener('click',this.eventHandler)
     },
     open() {
       this.visible = true;
       this.appendContent();
+      setTimeout(() => {
+            console.log("添加监听器");
+            document.addEventListener("click", this.eventHandler);
+          }, 0);
     }
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 
