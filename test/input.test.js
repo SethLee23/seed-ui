@@ -2,7 +2,6 @@ let expect = chai.expect;
 import Vue from 'vue'
 import Input from '../src/input/input'
 
-66
 Vue.config.productionTip = false
 Vue.config.devtools = false
 

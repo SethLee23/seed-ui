@@ -1,7 +1,7 @@
 <template>
-  <div class="popover" :class="classes" @click="onClick($event)" ref="popover">
+  <div class="popover" :class="classes" ref="popover">
     <div class="contentWrapper" v-if="visible" ref="content" :class="`position-${position}`">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <div class="triggerWrapper" ref="trigger">
       <slot></slot>
@@ -24,6 +24,13 @@ export default {
       validator(value) {
         return ["top", "left", "right", "bottom"].indexOf(value) >= 0;
       }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(value){
+        return ['click','hover'].indexOf(value) >= 0
+      }
     }
   },
   computed: {
@@ -33,29 +40,36 @@ export default {
   },
   methods: {
     appendContent() {
-      this.$nextTick(() => {
+      this.$nextTick(() =>{
         let {
           width,height,top,left,right,bottom
         } = this.$refs.trigger.getBoundingClientRect();
-        let {height:height2} = this.$refs.content.getBoundingClientRect();
         let content = this.$refs.content;
-        if (this.$refs.content.classList.contains("position-top")) {
-          this.$refs.content.style.top = top + window.scrollY + "px";
-          this.$refs.content.style.left = left + "px";
-        }else if(this.$refs.content.classList.contains("position-left")){
-           this.$refs.content.style.top = top + window.scrollY +(height-height2)/2+ "px";
-           this.$refs.content.style.left = left + "px";
-        }else if(this.$refs.content.classList.contains("position-right")){
-           this.$refs.content.style.top = top + window.scrollY +(height-height2)/2+ "px";
-           this.$refs.content.style.left = left + width + "px";
-        }else if(this.$refs.content.classList.contains("position-bottom")){
-           this.$refs.content.style.top = bottom+ window.scrollY + "px";
-           this.$refs.content.style.left = left + "px";
+        let {height:height2} = content.getBoundingClientRect();
+         let positions = {
+        top: {
+          top: window.scrollY + top,
+          left: left,
+        },
+        bottom: {
+          top: window.scrollY + top + height,
+          left: left,
+        },
+        left: {
+          top: window.scrollY + top + (height-height2)/2,
+          left: left,
+        },
+        right: {
+          top: window.scrollY + top + (height-height2)/2,
+          left: left + width,
         }
+      }
+      content.style.left = positions[this.position].left + 'px'
+      content.style.top = positions[this.position].top + 'px'
       });
     },
     eventHandler(e) {
-      if (e.target === this.$refs.content) {
+      if (e.target === this.$refs.content||this.$refs.content.contains(e.target)) {
         console.log("你点击的是content");
         return;
       }
@@ -63,6 +77,7 @@ export default {
       this.close();
     },
     onClick(e) {
+      // console.log(this.$refs.content)
       if (this.$refs.trigger.contains(e.target)) {
         if (!this.visible) {
           console.log('trigger打开')
@@ -85,7 +100,14 @@ export default {
       }, 0);
     }
   },
-  mounted() {}
+  mounted() {
+   if(this.trigger==='click'){
+     this.$refs.popover.addEventListener('click',this.onClick)
+   }else if(this.trigger==="hover"){
+     this.$refs.trigger.addEventListener('mouseenter',this.open)
+     this.$refs.popover.addEventListener('mouseleave',this.close)
+   }
+  }
 };
 </script>
 
