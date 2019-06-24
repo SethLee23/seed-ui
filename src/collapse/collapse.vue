@@ -29,8 +29,6 @@ export default {
     }
   },
   mounted() {
-    console.log("this.singel");
-    console.log(this.singel);
     if (this.selected) {
       this.eventBus.$emit("update:selected", this.selected);
     }
@@ -42,16 +40,12 @@ export default {
       } else {
         this.selectedArr.push(name);
       }
-      console.log("add");
-
       this.$emit("update:selected", this.selectedArr);
       this.eventBus.$emit("update:selected", this.selectedArr);
     });
     this.eventBus.$on("update:removeSelected", name => {
-      console.log("remove");
       let index = this.selectedArr.indexOf(name);
       this.selectedArr.splice(index, 1);
-      console.log("this.selectedArr remove");
       this.$emit("update:selected", this.selectedArr);
       this.eventBus.$emit("update:selected", this.selectedArr);
     });
@@ -60,4 +54,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$grey: grey;
+$border-radius: 4px;
+.collapse {
+    border: 1px solid $grey;
+    border-radius: $border-radius;
+  }
 </style>

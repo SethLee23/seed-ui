@@ -52,8 +52,8 @@ new Vue({
     message: '11111',
     selectedTab: 'woman',
     selectedTab2: ['2','3'],
+    selectedTab3: ['1'],
   },
-  created() {},
   methods: {
     sayHi() {
       console.log('hihihi')
