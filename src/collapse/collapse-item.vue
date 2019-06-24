@@ -17,8 +17,15 @@ export default {
   },
   inject:['eventBus'],
   props: {
-    name: String,
-    title: String
+    name:{
+      type: String,
+      required: true,
+    },
+    title:{
+      type: String,
+      required: true,
+    },
+    
   },
   mounted(){
    this.eventBus.$on('update:selected',(names)=>{
