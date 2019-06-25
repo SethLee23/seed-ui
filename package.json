@@ -1,6 +1,6 @@
 {
   "name": "seed-ui-work",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "description": "ui framework",
   "main": "index.js",
   "scripts": {

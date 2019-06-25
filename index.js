@@ -21,7 +21,6 @@ import Popover from './src/popover/popover'
 import Collapse from './src/collapse/collapse'
 import CollapseItem from './src/collapse/collapse-item'
 
-Vue.use(plugin)
 
 export {
     Button,

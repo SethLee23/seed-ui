@@ -67,6 +67,9 @@ $padding-leftandright: 1.45em;
 $border-radius: 4px;
 $circle-padding: 1em;
 $border-color-hover: #666;
+$background-active-opacity:rgba(0, 0, 0, 5%);
+$background-hover-opacity:rgba(255, 255, 255, 15%);
+$background-hover-boxshawdow:rgba(0, 0, 0, 30%);
 /* base css */
 .el-button {
   display: inline-block;
@@ -115,7 +118,7 @@ button:active::before {
   left: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 5%);
+  background-color: $background-active-opacity
 }
 
 button:hover::after {
@@ -126,8 +129,8 @@ button:hover::after {
   left: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 15%);
-  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 30%);
+  background-color: $background-hover-opacity;
+  box-shadow: 0px 1px 2px 1px $background-hover-boxshawdow;
 }
 
 button.circle:hover::after,

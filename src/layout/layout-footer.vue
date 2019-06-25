@@ -1,6 +1,6 @@
 <template>
 <div class="SLayoutFooter">
-    <slot><slot>
+    <slot></slot>
 </div>
 </template>
 
