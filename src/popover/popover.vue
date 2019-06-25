@@ -80,10 +80,8 @@ export default {
       // console.log(this.$refs.content)
       if (this.$refs.trigger.contains(e.target)) {
         if (!this.visible) {
-          console.log('trigger打开')
           this.open();
         } else {
-          console.log('trigger关闭')
           this.close();
         }
       }

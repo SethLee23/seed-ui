@@ -1,8 +1,8 @@
 <template>
   <div class="collapseItem">
-    <div class="title" @click="changeItem">{{title}}</div>
+    <div class="title" @click="changeItem" :data-title="title">{{title}}</div>
     <transition name="slide">
-    <div class="content" v-if="show">
+    <div class="content" v-if="show" :data-name="name">
       <slot></slot>
     </div>
     </transition>
@@ -30,7 +30,7 @@ export default {
     
   },
   mounted(){
-   this.eventBus.$on('update:selected',(names)=>{
+   this.eventBus&&this.eventBus.$on('update:selected',(names)=>{
     if(names.indexOf(this.name)>=0){
        this.show = true
     }else{
@@ -41,11 +41,11 @@ export default {
   methods:{
       changeItem(){
           if(this.show){
-         this.eventBus.$emit('update:removeSelected',this.name)
+         this.eventBus&&this.eventBus.$emit('update:removeSelected',this.name)
         //  this.show = false
          }else if(!this.show){
             //   this.show = true
-         this.eventBus.$emit('update:addSelected',this.name)
+         this.eventBus&&this.eventBus.$emit('update:addSelected',this.name)
           }
       }
   }
@@ -99,14 +99,4 @@ export default {
    transform: translateY(-100%);
    opacity: 0;
 }
-// .collapseItem {
-//   display: flex;
-//   flex-direction: column;
-//   >.title {
-//       background:#ffab91;
-//   }
-//   >.content {
-//       background:  #4fc3f7;
-//   }
-// }
 </style>

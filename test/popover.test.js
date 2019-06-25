@@ -57,6 +57,7 @@ describe('Popover', () => {
                 vm.$nextTick(()=>{
                     expect(vm.$refs.a.$refs.content).to.be.not.exist
                 })
+                
                 done()
               })
             }, 10)
