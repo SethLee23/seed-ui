@@ -1,6 +1,6 @@
 let expect = chai.expect;
 import Vue from 'vue'
-import Upload from '../src/picture-bed/Upload'
+import Upload from '../src/picture-bed/upload'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false
