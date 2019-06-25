@@ -1,5 +1,5 @@
 # seed-ui-work
-[![Build Status](https://travis-ci.org/SethLee23/simple-ui.svg?branch=master)](https://travis-ci.org/SethLee23/simple-ui)
+[![Build Status](https://travis-ci.org/SethLee23/seed-ui.svg?branch=master)](https://travis-ci.org/SethLee23/seed-ui)
 
 ## 介绍
 学习 Vue 过程中做的一个非常简单的 ui 库，持续更新中
@@ -11,36 +11,28 @@
 * , *::before, *::after{box-sizing: border-box;}
 ```
 IE 8 及以上都支持此样式。
-
-* 你需要自定义默认颜色等变量，(后面会更改为 scss 变量)
+* 由于本框架的样式是使用的 scss 语法，请在使用此框架前安装 sass 以及 sass-loader 
 ```
-:root {
-  --button-height: 32px;
-  --font-size: 14px;
-  --button-bg: white;
-  --button-active-bg: #eee;
-  --border-radius: 4px;
-  --color: #999;
-  --border-color: #999;
-  --border-color-hover: #666;
-}
+yarn add sass
+yarn add sass-loader --save-dev
 ```
-IE 15 及以上浏览器都支持此样式。
-
-2. 安装 simple-ui
+2. 安装 seed-ui-work
 ```
-npm i --save seth23
+npm i --save seed-ui-work
 ```
-
-3. 引入 simple-ui
+或者
 ```
-import { Button, ButtonGroup, Icon } from "seth23";
-import 'seth23/dist/index.css'
+yarn add seed-ui-work
+```
+3. 引入 seed-ui-work
+```
+import { Button, ButtonGroup, Icon } from "seed-ui-work";
 
 export default {
   name: "app",
   components: {
-    "g-button": Button
+    "s-button": Button,
+    "s-button-group": ButtonGroup,
   }
 };
 ```
@@ -50,20 +42,16 @@ Vue.component('s-icon',Icon)
 ``` 
 ## 文档
 ### 使用button组件
-1. 引入后按需使用 <g-button> 
+1. 引入后按需使用 <s-button> 
 ```
-<g-button icon="download" iconPosition="right">
+<s-button icon="download" position="right">
       欢迎使用咕噜
-</g-button>
+</s-button>
 ```
 2. 使用 s-icon
 ```
 <s-icon name="download"></s-icon>
 ```
-## 安装
-## 提问
-## 变更记录
-## 贡献代码
 
 
 
