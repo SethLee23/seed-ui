@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .wrapper {
   display: flex;
   flex-wrap: wrap;

@@ -12,8 +12,8 @@ module.exports = {
           link: '/install/'
         },
         {
-          text: '交流',
-          link: 'https://github.com/SethLee23'
+          text: '代码仓库',
+          link: 'https://github.com/SethLee23/seed-ui'
         },
       ],
       sidebar: [{
@@ -25,7 +25,7 @@ module.exports = {
           title: '组件',
           collapsable: false,
         //   children: ['/compo/button','/compo/grid','/compo/collapse']
-          children: ['/compo/button']
+          children: ['/compo/button','/compo/grid']
         },
       ]
     },

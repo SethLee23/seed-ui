@@ -6,10 +6,10 @@
 * , *::before, *::after{box-sizing: border-box;}
 ```
 IE 8 及以上都支持此样式。
-* 由于本框架的样式是使用的 scss 语法，请在使用此框架前安装 sass 以及 sass-loader 
+* 由于本框架的样式是使用的 less 语法，请在使用此框架前安装 less 以及 less-loader 
 ```
-yarn add sass
-yarn add sass-loader --save-dev
+yarn add less
+yarn add less-loader --save-dev
 ```
 2. 安装 seed-ui-work
 ```
@@ -46,4 +46,4 @@ Vue.component('s-icon',Icon)
 2. 使用 s-icon
 ```
 <s-icon name="download"></s-icon>
-```
+```0

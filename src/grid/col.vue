@@ -36,7 +36,7 @@ export default {
       return {
         paddingLeft: gutter / 2 + "px",
         paddingRight: gutter / 2 + "px",
-        background: "pink"
+        // background: "white"
       };
     },
     colClasses() {
@@ -210,79 +210,4 @@ export default {
       }
       .generate-widePc-offset(@n, (@i + 1));
     }
-// .col {
-//     @media (min-width: 0px) {
-//     @for $i from 1 through 24 {
-//     &.span-#{$i} {
-//       width: ($i / 24) * 100%;
-//     }
-//   }
-//   @for $i from 1 through 24 {
-//     &.offset-#{$i} {
-//       margin-left: ($i / 24) * 100%;
-//     }
-//   }
-//     }
-//   & > div {
-//     display: flex;
-//     border: 1px solid red;
-//   }
-//   &.align-center > div {
-//     justify-content: center;
-//   }
-//   &.align-left > div {
-//     justify-content: flex-start;
-//   }
-//   &.align-right > div {
-//     justify-content: flex-end;
-//   }
-//   @media (min-width: 577px) {
-//     @for $i from 1 through 24 {
-//       &.ipad-span-#{$i} {
-//         width: ($i / 24) * 100%;
-//       }
-//     }
-//     @for $i from 1 through 24 {
-//       &.ipad-offset-#{$i} {
-//         margin-left: ($i / 24) * 100%;
-//       }
-//     }
-//   }
-//   @media (min-width: 769px) {
-//     @for $i from 1 through 24 {
-//       &.narrowPc-span-#{$i} {
-//         width: ($i / 24) * 100%;
-//       }
-//     }
-//     @for $i from 1 through 24 {
-//       &.narrowPc-offset-#{$i} {
-//         margin-left: ($i / 24) * 100%;
-//       }
-//     }
-//   }
-//   @media (min-width: 993px) {
-//     @for $i from 1 through 24 {
-//       &.pc-span-#{$i} {
-//         width: ($i / 24) * 100%;
-//       }
-//     }
-//     @for $i from 1 through 24 {
-//       &.pc-offset-#{$i} {
-//         margin-left: ($i / 24) * 100%;
-//       }
-//     }
-//   }
-//   @media (min-width: 1201px) {
-//     @for $i from 1 through 24 {
-//       &.widePc-span-#{$i} {
-//         width: ($i / 24) * 100%;
-//       }
-//     }
-//     @for $i from 1 through 24 {
-//       &.widePc-offset-#{$i} {
-//         margin-left: ($i / 24) * 100%;
-//       }
-//     }
-//   }
-// }
 </style>
