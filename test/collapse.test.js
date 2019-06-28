@@ -30,8 +30,8 @@ describe('Collapse', () => {
                 el: div,
             })
             setTimeout(()=>{
-                expect(vm.$el.querySelector('.content[data-name="1"]')).to.exist
-                expect(vm.$el.querySelector('.content[data-name="3"]')).to.exist
+                expect(vm.$el.querySelector('.s-content[data-name="1"]')).to.exist
+                expect(vm.$el.querySelector('.s-content[data-name="3"]')).to.exist
                 done()
             },100) 
         })
@@ -49,15 +49,15 @@ describe('Collapse', () => {
                 el: div,
             })
             setTimeout(()=>{
-                expect(vm.$el.querySelector('.content[data-name="1"]')).to.exist
-                expect(vm.$el.querySelector('.content[data-name="3"]')).to.exist
+                expect(vm.$el.querySelector('.s-content[data-name="1"]')).to.exist
+                expect(vm.$el.querySelector('.s-content[data-name="3"]')).to.exist
                 let event = new Event('click')
                 let title2 = vm.$el.querySelector('.title[data-title="第二个"]')
                 title2.dispatchEvent(event)
                 setTimeout(()=>{
-                    expect(vm.$el.querySelector('.content[data-name="1"]')).to.not.exist
-                    expect(vm.$el.querySelector('.content[data-name="3"]')).to.not.exist   
-                    expect(vm.$el.querySelector('.content[data-name="2"]')).to.exist   
+                    expect(vm.$el.querySelector('.s-content[data-name="1"]')).to.not.exist
+                    expect(vm.$el.querySelector('.s-content[data-name="3"]')).to.not.exist   
+                    expect(vm.$el.querySelector('.s-content[data-name="2"]')).to.exist   
                 },1000)
                 done()
             },1500) 
