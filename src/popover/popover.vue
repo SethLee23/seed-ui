@@ -109,9 +109,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$border-color: #333;
-$border-radius: 4px;
+<style lang="less" scoped>
+@border-color: #333;
+@border-radius: 4px;
 
 .popover {
   display: inline-block;
@@ -119,7 +119,7 @@ $border-radius: 4px;
   // position: relative;
 }
 .contentWrapper {
-  border: 1px solid $border-color;
+  border: 1px solid @border-color;
   word-break: break-all;
   position: absolute;
   background: white;
@@ -144,11 +144,11 @@ $border-radius: 4px;
     left: 0px;
     transform: translateY(-100%);
     margin-top: -10px;
-    border-top-color: $border-color;
+    border-top-color: @border-color;
     &::before {
       top: 100%;
       left: 5px;
-      border-top-color: $border-color;
+      border-top-color: @border-color;
     }
     &::after {
       top: 100%;
@@ -163,7 +163,7 @@ $border-radius: 4px;
     &::before {
       left: 100%;
       top: 5px;
-      border-left-color: $border-color;
+      border-left-color: @border-color;
     }
     &::after {
       top: 5px;
@@ -177,7 +177,7 @@ $border-radius: 4px;
     &::before {
       right: 100%;
       top: 5px;
-      border-right-color: $border-color;
+      border-right-color: @border-color;
     }
     &::after {
       top: 5px;
@@ -191,7 +191,7 @@ $border-radius: 4px;
     &::before {
       left: 5px;
       bottom: 100%;
-      border-bottom-color: $border-color;
+      border-bottom-color: @border-color;
     }
     &::after {
       left: 5px;

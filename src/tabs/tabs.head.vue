@@ -26,16 +26,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 body,
 * {
   margin: 0;
   padding: 0;
 }
-$border-color: rgb(234, 236, 239);
+@border-color: rgb(234, 236, 239);
 .tabHead {
   display: flex;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid @border-color;
   position: relative;
   align-items: center;
   justify-content: flex-start;

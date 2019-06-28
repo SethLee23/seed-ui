@@ -140,8 +140,8 @@ export default {
 // console.log(arr);
 </script>
 
-<style lang="scss" scoped>
-$border-radius: 4px;
+<style lang="less" scoped>
+@border-radius: 4px;
 .wrapper {
   border: 1px solid rgb(235, 235, 235);
   margin: 10px;
@@ -149,7 +149,7 @@ $border-radius: 4px;
   max-width: 800px;
   display: inline-flex;
   flex-wrap: wrap;
-  border-radius: $border-radius;
+  border-radius: @border-radius;
 .container ,.item{
   background-color: #fbfdff;
   border-radius: 6px;

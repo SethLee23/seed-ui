@@ -85,21 +85,21 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$font-size: 14px;
-$min-height: 40px;
-$line-height: 1.8;
-$border-radius: 4px;
-$background-color: rgba(0, 0, 0, 0.75);
+<style lang="less" scoped>
+@font-size: 14px;
+@min-height: 40px;
+@line-height: 1.8;
+@border-radius: 4px;
+@background-color: rgba(0, 0, 0, 0.75);
 .toast {
   position: fixed;
 
   > .wrapper {
     display: flex;
     align-items: center;
-    font-size: $font-size;
-    min-height: $min-height;
-    line-height: $line-height;
+    font-size: @font-size;
+    min-height: @min-height;
+    line-height: @line-height;
     display: flex;
     color: #fff;
     align-items: center;

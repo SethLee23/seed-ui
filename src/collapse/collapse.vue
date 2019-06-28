@@ -53,11 +53,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$grey: grey;
-$border-radius: 4px;
+<style lang="less" scoped>
+@grey: grey;
+@border-radius: 4px;
 .collapse {
-    border: 1px solid $grey;
-    border-radius: $border-radius;
+    border: 1px solid @grey;
+    border-radius: @border-radius;
   }
 </style>

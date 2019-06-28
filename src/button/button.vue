@@ -1,13 +1,13 @@
 <template>
   <button
-    class="el-button"
+    class="s-button"
     :class="[`${types}`,`icon-${position}`]"
     :disabled="disabled"
     @click="$emit('click')"
   >
     <s-icon :name="icon" class="icon" v-if="icon&&!loading"></s-icon>
     <s-icon name="loading" class="icon loading" v-if="loading"></s-icon>
-    <span class="content">
+    <span class="s-content">
       <slot></slot>
     </span>
   </button>
@@ -51,37 +51,37 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$button-danger: #f78989;
-$button-normal: white;
-$button-success: #67c23a;
-$color: white;
-$border-color: #f78989;
-$font-size: 14px;
-$padding-top: 0.85em;
-$padding-right: 1.45em;
-$padding-bottom: 0.85em;
-$padding-left: 1.45em;
-$padding-topandbottom: 0.85em;
-$padding-leftandright: 1.45em;
-$border-radius: 4px;
-$circle-padding: 1em;
-$border-color-hover: #666;
-$background-active-opacity:rgba(0, 0, 0, 5%);
-$background-hover-opacity:rgba(255, 255, 255, 15%);
-$background-hover-boxshawdow:rgba(0, 0, 0, 30%);
+<style lang="less" scoped>
+@button-danger: #f78989;
+@button-normal: white;
+@button-success: #67c23a;
+@color: white;
+@border-color: #f78989;
+@font-size: 14px;
+@padding-top: 0.85em;
+@padding-right: 1.45em;
+@padding-bottom: 0.85em;
+@padding-left: 1.45em;
+@padding-topandbottom: 0.85em;
+@padding-leftandright: 1.45em;
+@border-radius: 4px;
+@circle-padding: 1em;
+@border-color-hover: #666;
+@background-active-opacity:rgba(0, 0, 0, 5%);
+@background-hover-opacity:rgba(255, 255, 255, 15%);
+@background-hover-boxshawdow:rgba(0, 0, 0, 30%);
 /* base css */
-.el-button {
+.s-button {
   display: inline-block;
   line-height: 1;
   text-align: center;
   outline: none;
-  background-color: $button-normal;
+  background-color: @button-normal;
   border: 1px solid #dcdfe6;
-  color: $color;
-  padding: $padding-topandbottom $padding-leftandright;
-  font-size: $font-size;
-  border-radius: $border-radius;
+  color: @color;
+  padding: @padding-topandbottom @padding-leftandright;
+  font-size: @font-size;
+  border-radius: @border-radius;
   position: relative;
   display: flex;
   &.icon-left {
@@ -90,7 +90,7 @@ $background-hover-boxshawdow:rgba(0, 0, 0, 30%);
       margin-left: 0;
       margin-right: 0.2em;
     }
-    > .content {
+    > .s-content {
       order: 2;
     }
   }
@@ -100,17 +100,17 @@ $background-hover-boxshawdow:rgba(0, 0, 0, 30%);
       margin-left: 0.2em;
       margin-right: 0;
     }
-    > .content {
+    > .s-content {
       order: 1;
     }
   }
 }
-button:disabled {
+.s-button:disabled {
   border-color: #bbb;
   color: #bbb;
   cursor: not-allowed;
 }
-button:active::before {
+.s-button:active::before {
   display: block;
   content: "";
   position: absolute;
@@ -118,10 +118,10 @@ button:active::before {
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: $background-active-opacity
+  background-color: @background-active-opacity
 }
 
-button:hover::after {
+.s-button:hover::after {
   display: block;
   content: "";
   position: absolute;
@@ -129,12 +129,12 @@ button:hover::after {
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: $background-hover-opacity;
-  box-shadow: 0px 1px 2px 1px $background-hover-boxshawdow;
+  background-color: @background-hover-opacity;
+  box-shadow: 0px 1px 2px 1px @background-hover-boxshawdow;
 }
 
-button.circle:hover::after,
-button.circle:active::before {
+.s-button.circle:hover::after,
+.s-button.circle:active::before {
   border-radius: 50%;
 }
 
@@ -147,29 +147,29 @@ button.circle:active::before {
 }
 
 /* diffrent type button */
-button.danger {
-  background-color: $button-danger;
+.s-button.danger {
+  background-color: @button-danger;
 }
-button.normal {
+.s-button.normal {
   color: black;
-  background-color: $button-normal;
+  background-color: @button-normal;
   border: 1px solid #dcdfe6;
 }
-button.success {
-  background-color: $button-success;
-  border: 1px solid $button-success;
+.s-button.success {
+  background-color: @button-success;
+  border: 1px solid @button-success;
 }
 /* circle button */
-button.circle {
+.s-button.circle {
   border-radius: 50%;
-  padding: $circle-padding;
+  padding: @circle-padding;
   &.icon-left {
     > .icon {
       order: 1;
       margin-left: 0;
       margin-right: 0;
     }
-    > .content {
+    > .s-content {
       order: 2;
     }
   }
@@ -179,7 +179,7 @@ button.circle {
       margin-left: 0;
       margin-right: 0;
     }
-    > .content {
+    > .s-content {
       order: 1;
     }
   }

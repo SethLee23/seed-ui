@@ -41,7 +41,14 @@ export default {
     },
     colClasses() {
       let {
-        span,offset,ipad,narrowPc,pc,widePc,colAlign,createClasses
+        span,
+        offset,
+        ipad,
+        narrowPc,
+        pc,
+        widePc,
+        colAlign,
+        createClasses
       } = this;
       return [
         // span && "span-" + span,
@@ -58,15 +65,15 @@ export default {
   methods: {
     createClasses(str, obj) {
       if (obj) {
-        let arr = []
-        if(obj.span){
-          arr.push(`${str}-span-${obj.span}`)
+        let arr = [];
+        if (obj.span) {
+          arr.push(`${str}-span-${obj.span}`);
         }
-        if(obj.offset){
-          arr.push(`${str}-offset-${obj.offset}`)
+        if (obj.offset) {
+          arr.push(`${str}-offset-${obj.offset}`);
         }
-        return arr
-        // return [`${str}-span-${obj.span}`, 
+        return arr;
+        // return [`${str}-span-${obj.span}`,
         // `${str}-offset-${obj.offset}`];
       } else {
         return [];
@@ -104,20 +111,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
+    
 .col {
-    @media (min-width: 0px) {
-    @for $i from 1 through 24 {
-    &.span-#{$i} {
-      width: ($i / 24) * 100%;
-    }
+  @media (min-width: 0px) {
+    .generate-columns(24);
+    .generate-offset(24);
   }
-  @for $i from 1 through 24 {
-    &.offset-#{$i} {
-      margin-left: ($i / 24) * 100%;
-    }
-  }
-    }
   & > div {
     display: flex;
     border: 1px solid red;
@@ -132,52 +132,157 @@ export default {
     justify-content: flex-end;
   }
   @media (min-width: 577px) {
-    @for $i from 1 through 24 {
-      &.ipad-span-#{$i} {
-        width: ($i / 24) * 100%;
-      }
-    }
-    @for $i from 1 through 24 {
-      &.ipad-offset-#{$i} {
-        margin-left: ($i / 24) * 100%;
-      }
-    }
+    .generate-ipad-columns(24);
+    .generate-ipad-offset(24)
   }
   @media (min-width: 769px) {
-    @for $i from 1 through 24 {
-      &.narrowPc-span-#{$i} {
-        width: ($i / 24) * 100%;
-      }
-    }
-    @for $i from 1 through 24 {
-      &.narrowPc-offset-#{$i} {
-        margin-left: ($i / 24) * 100%;
-      }
-    }
+    .generate-narrowPc-columns(24);
+    .generate-narrowPc-offset(24)
   }
   @media (min-width: 993px) {
-    @for $i from 1 through 24 {
-      &.pc-span-#{$i} {
-        width: ($i / 24) * 100%;
-      }
-    }
-    @for $i from 1 through 24 {
-      &.pc-offset-#{$i} {
-        margin-left: ($i / 24) * 100%;
-      }
-    }
+    .generate-pc-columns(24);
+    .generate-pc-offset(24)
   }
   @media (min-width: 1201px) {
-    @for $i from 1 through 24 {
-      &.widePc-span-#{$i} {
-        width: ($i / 24) * 100%;
-      }
-    }
-    @for $i from 1 through 24 {
-      &.widePc-offset-#{$i} {
-        margin-left: ($i / 24) * 100%;
-      }
-    }
-  }
+    .generate-widePc-columns(24);
+    .generate-widePc-offset(24)
 }
+}
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+      &.span-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .generate-columns(@n, (@i + 1));
+    }
+    .generate-ipad-columns(@n, @i: 1) when (@i =< @n) {
+      &.ipad-span-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .generate-ipad-columns(@n, (@i + 1));
+    }
+    .generate-narrowPc-columns(@n, @i: 1) when (@i =< @n) {
+      &.narrowPc-span-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .generate-narrowPc-columns(@n, (@i + 1));
+    }
+    .generate-pc-columns(@n, @i: 1) when (@i =< @n) {
+      &.pc-span-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .generate-pc-columns(@n, (@i + 1));
+    }
+    .generate-widePc-columns(@n, @i: 1) when (@i =< @n) {
+      &.widePc-span-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .generate-widePc-columns(@n, (@i + 1));
+    }
+
+
+    .generate-offset(@n, @i: 1) when (@i =< @n) {
+      &.offset-@{i} {
+        margin-left : (@i * 100% / @n);
+      }
+      .generate-offset(@n, (@i + 1));
+    }
+    .generate-ipad-offset(@n, @i: 1) when (@i =< @n) {
+      &.ipad-offset-@{i} {
+        margin-left : (@i * 100% / @n);
+      }
+      .generate-ipad-offset(@n, (@i + 1));
+    }
+    .generate-narrowPc-offset(@n, @i: 1) when (@i =< @n) {
+      &.narrowPc-offset-@{i} {
+        margin-left : (@i * 100% / @n);
+      }
+      .generate-narrowPc-offset(@n, (@i + 1));
+    }
+    .generate-pc-offset(@n, @i: 1) when (@i =< @n) {
+      &.pc-offset-@{i} {
+        margin-left : (@i * 100% / @n);
+      }
+      .generate-pc-offset(@n, (@i + 1));
+    }
+    .generate-widePc-offset(@n, @i: 1) when (@i =< @n) {
+      &.widePc-offset-@{i} {
+        margin-left : (@i * 100% / @n);
+      }
+      .generate-widePc-offset(@n, (@i + 1));
+    }
+// .col {
+//     @media (min-width: 0px) {
+//     @for $i from 1 through 24 {
+//     &.span-#{$i} {
+//       width: ($i / 24) * 100%;
+//     }
+//   }
+//   @for $i from 1 through 24 {
+//     &.offset-#{$i} {
+//       margin-left: ($i / 24) * 100%;
+//     }
+//   }
+//     }
+//   & > div {
+//     display: flex;
+//     border: 1px solid red;
+//   }
+//   &.align-center > div {
+//     justify-content: center;
+//   }
+//   &.align-left > div {
+//     justify-content: flex-start;
+//   }
+//   &.align-right > div {
+//     justify-content: flex-end;
+//   }
+//   @media (min-width: 577px) {
+//     @for $i from 1 through 24 {
+//       &.ipad-span-#{$i} {
+//         width: ($i / 24) * 100%;
+//       }
+//     }
+//     @for $i from 1 through 24 {
+//       &.ipad-offset-#{$i} {
+//         margin-left: ($i / 24) * 100%;
+//       }
+//     }
+//   }
+//   @media (min-width: 769px) {
+//     @for $i from 1 through 24 {
+//       &.narrowPc-span-#{$i} {
+//         width: ($i / 24) * 100%;
+//       }
+//     }
+//     @for $i from 1 through 24 {
+//       &.narrowPc-offset-#{$i} {
+//         margin-left: ($i / 24) * 100%;
+//       }
+//     }
+//   }
+//   @media (min-width: 993px) {
+//     @for $i from 1 through 24 {
+//       &.pc-span-#{$i} {
+//         width: ($i / 24) * 100%;
+//       }
+//     }
+//     @for $i from 1 through 24 {
+//       &.pc-offset-#{$i} {
+//         margin-left: ($i / 24) * 100%;
+//       }
+//     }
+//   }
+//   @media (min-width: 1201px) {
+//     @for $i from 1 through 24 {
+//       &.widePc-span-#{$i} {
+//         width: ($i / 24) * 100%;
+//       }
+//     }
+//     @for $i from 1 through 24 {
+//       &.widePc-offset-#{$i} {
+//         margin-left: ($i / 24) * 100%;
+//       }
+//     }
+//   }
+// }
 </style>

@@ -87,13 +87,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-$border-color: #999;
-$height: 32px;
-$border-color-hover: #666;
-$border-radius: 4px;
-$box-shadow-color: rgba(0, 0, 0, 20%);
-$red: #f1453d;
+<style lang="less" scoped>
+@border-color: #999;
+@height: 32px;
+@border-color-hover: #666;
+@border-radius: 4px;
+@box-shadow-color: rgba(0, 0, 0, 20%);
+@red: #f1453d;
 .wrapper {
   font-size: 14px;
   display: inline-flex;
@@ -104,20 +104,20 @@ $red: #f1453d;
   }
   > input {
     font-size: inherit;
-    height: $height;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
+    height: @height;
+    border: 1px solid @border-color;
+    border-radius: @border-radius;
     padding: 0 8px;
     &.iconRight {
     width: calc(100% - 2em);
     padding-right: 2em;
   }
     &:hover {
-      border: 1px solid $border-color-hover;
+      border: 1px solid @border-color-hover;
     }
     &:focus {
       outline: none;
-      box-shadow: inset 0 1px 3px 0px $box-shadow-color;
+      box-shadow: inset 0 1px 3px 0px @box-shadow-color;
     }
     &:disabled,
     &:read-only {
@@ -129,15 +129,15 @@ $red: #f1453d;
   }
   &.error {
     > input {
-      border-color: $red;
-      color: $red;
+      border-color: @red;
+      color: @red;
     }
   }
   .icon-error {
-    fill: $red;
+    fill: @red;
   }
   .errmsg {
-    color: $red;
+    color: @red;
   }
   .delete, 
   .position-right{
