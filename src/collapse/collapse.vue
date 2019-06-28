@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@grey: grey;
+@grey: #ddd;
 @border-radius: 4px;
 .collapse {
     border: 1px solid @grey;

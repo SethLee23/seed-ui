@@ -25,7 +25,7 @@ module.exports = {
           title: '组件',
           collapsable: false,
         //   children: ['/compo/button','/compo/grid','/compo/collapse']
-          children: ['/compo/button','/compo/grid']
+          children: ['/compo/button','/compo/grid','/compo/collapse']
         },
       ]
     },
