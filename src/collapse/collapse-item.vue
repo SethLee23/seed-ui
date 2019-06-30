@@ -66,6 +66,7 @@ export default {
       align-items: center; 
       padding: 0 8px;
       background: lighten(@grey, 8%);
+      cursor: pointer;
     }
     &:first-child {
       > .title { border-top-left-radius: @border-radius; border-top-right-radius: @border-radius; }
@@ -73,17 +74,17 @@ export default {
     &:last-child {
       > .title:last-child { border-bottom-left-radius: @border-radius; border-bottom-right-radius: @border-radius; }
     }
-    > .s-content { padding: 8px;}
+    > .s-content { padding: 8px}
   } 
 
   .slide-enter-active, .slide-leave-active {
     // transform: translateY(0);
     transition: 0.3s linear;
-    opacity: 1;
 }
 // 消失的（最后）状态
 .slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
-   transform: translateY(-100%);
+  //  transform: translateY(-100%);
+  margin-top: -40px;
    opacity: 0;
 }
 </style>

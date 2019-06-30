@@ -72,7 +72,6 @@ export default {
 @background-hover-boxshawdow:rgba(0, 0, 0, 30%);
 /* base css */
 .s-button {
-  display: inline-block;
   line-height: 1;
   text-align: center;
   outline: none;
@@ -83,7 +82,8 @@ export default {
   font-size: @font-size;
   border-radius: @border-radius;
   position: relative;
-  display: flex;
+  display: inline-flex;
+  vertical-align: top;
   &.icon-left {
     > .icon {
       order: 1;

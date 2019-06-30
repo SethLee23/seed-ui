@@ -2,37 +2,37 @@
 title: 'button'
 ---
 # button -- 按钮
-使用方法
+## 示例
 <ClientOnly>
 <button-demos/>
 </ClientOnly>
-示例：
-```js{1,16,25}
-    //默认按钮
-    <s-button>默认按钮</s-button>
-    <s-button icon="setting">
-      默认按钮
-    </s-button>
-    <s-button :loading="true">
-      默认按钮
-    </s-button>
-    <s-button :loading="true" iconPosition="right">
-      默认按钮
-    </s-button>
-    <s-button disabled>
-      默认按钮
-    </s-button>
 
-     //按钮组合
-    <s-button-group>
-      <s-button icon="left" iconPosition="left">按钮</s-button>
-      <s-button>1</s-button>
-      <s-button>2</s-button>
-      <s-button>3</s-button>
-      <s-button icon="right" iconPosition="right">按钮</s-button>
-    </s-button-group>
+## Attributes:
+### button
 
-    //icon
-    <p>--接收name参数</p>
-    <s-icon name="setting"></s-icon>
+|参数           |说明           |类型     |可选值  |默认值 |
+|:-------------:|------------|:-------:|:------:|:------:|
+| types | 按钮类型，不同类型背景颜色不同 | string | success/danger/normal | normal |
+|icon| 图标类名，详见 icon 组件|string| - | - |
+| loading | 按钮加载状态 | boolean | - | false |
+| position | 图标位置 | string | left/right | left |
+| disabled | 禁用按钮 | boolean | - | false |
+
+### buttonGrounp
+将 button 组件直接放在 buttonGroup 组件中就可以直接使用按钮组合
+
+## 引入组件
+```js
+import {ButtonGroup,Button} from "seed-ui-work";
+export default {
+  name: "button-demos",
+  data() {
+    return {
+    };
+  },
+  components: {
+    "s-button": Button,
+    "s-button-group": ButtonGroup,
+  },
+};
 ```

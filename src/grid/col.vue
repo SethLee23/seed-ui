@@ -120,7 +120,8 @@ export default {
   }
   & > div {
     display: flex;
-    border: 1px solid red;
+    // border: 1px solid red;
+    // border: 1px solid #ddd;
   }
   &.align-center > div {
     justify-content: center;

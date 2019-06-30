@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import Button from '../button/button' 
 export default {
   name: "SLayoutSider",
   data() {
@@ -21,6 +22,9 @@ export default {
     triggerShow() {
       this.show = !this.show;
     }
+  },
+  components: {
+    's-button': Button,
   }
 };
 </script>
@@ -38,11 +42,12 @@ export default {
 }
 // 过渡生效状态
 .slide-enter-active, .slide-leave-active {
-  transition: all 0.5s;
+  margin-right: 0;
+  transition: .5s;
 }
 //进入过渡和过渡结束状态
 .slide-enter, .slide-leave-to {
-  margin-right: -200px;
+   margin-left: -200px;
 }
 
 

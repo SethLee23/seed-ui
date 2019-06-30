@@ -93,7 +93,7 @@ export default {
 @background-color: rgba(0, 0, 0, 0.75);
 .toast {
   position: fixed;
-
+  z-index: 9999;
   > .wrapper {
     display: flex;
     align-items: center;

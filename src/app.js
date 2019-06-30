@@ -21,7 +21,7 @@ import plugin from './toast/plugin'
 import Popover from './popover/popover'
 import Collapse from './collapse/collapse'
 import CollapseItem from './collapse/collapse-item'
-
+import ShowCode from './showCode'
 Vue.use(plugin)
 
 chai.use(spies)
@@ -45,7 +45,7 @@ Vue.component('s-col', Col)
 Vue.component('s-popover', Popover)
 Vue.component('s-collapse', Collapse)
 Vue.component('s-collapse-item', CollapseItem)
-
+Vue.component('s-showcode',ShowCode)
 new Vue({
   el: '#app',
   data: {
@@ -53,6 +53,7 @@ new Vue({
     selectedTab: 'woman',
     selectedTab2: ['2','3'],
     selectedTab3: ['1'],
+    string1: `<p>hello<p><br><h1>world</h1>`
   },
   methods: {
     sayHi() {

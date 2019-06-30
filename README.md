@@ -7,7 +7,7 @@
 
 1. 添加css样式
 * 安装使用本框架前，请在 css 中使用 border-box
-```
+```css
 * , *::before, *::after{box-sizing: border-box;}
 ```
 IE 8 及以上都支持此样式。

@@ -6972,7 +6972,7 @@ pretty-time@^1.1.0:
   resolved "https://registry.npm.taobao.org/pretty-time/download/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha1-/7dCmvq7hTXDRqNOQYc63z103Q4=
 
-prismjs@^1.13.0:
+prismjs@^1.13.0, prismjs@^1.16.0:
   version "1.16.0"
   resolved "https://registry.npm.taobao.org/prismjs/download/prismjs-1.16.0.tgz#406eb2c8aacb0f5f0f1167930cb83835d10a4308"
   integrity sha1-QG6yyKrLD18PEWeTDLg4NdEKQwg=
@@ -8756,6 +8756,11 @@ vue-loader@^15.2.4:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-prism-component@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npm.taobao.org/vue-prism-component/download/vue-prism-component-1.1.1.tgz#df0e375f7f9b367b069b2d54e6ed86facde96030"
+  integrity sha1-3w43X3+bNnsGmy1U5u2G+s3pYDA=
 
 vue-router@^3.0.2:
   version "3.0.6"

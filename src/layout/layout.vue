@@ -13,7 +13,6 @@ export default {
     };
   },
   mounted() {
-    //   console.log(this.$children)
       this.$children.forEach((childVm)=>{
        if(childVm.$options.name==='SLayoutSider'){
          this.hasSider = true
@@ -29,8 +28,8 @@ export default {
   flex-flow: column;
   display: flex;
   flex-grow: 1;
-  .hasSider {
-      flex-flow: row;
+  &.hasSider {
+  flex-flow: row;
   }
 }
 </style>
