@@ -19,11 +19,11 @@ title: 'grid'
 |:--------:|---------------------------------------|:-------:|:------:|:------:|
 |   span   | 分栏占据列数                          | string/number |   -    |
 |  offset  | 分栏偏移列数                          | string/number | - |  0    |
-|   ipad   | >=577px 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
-| narrowPc | >=769px 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
-|    pc    | >=993px 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
-|  widePc  | >=1201px 响应式栅格数或者栅格属性对象 | object  |   -    |   -    |
-* 注意：本组件是mobile-first，因此默认接收 span、offset时是手机布局方式
+|   ipad   | >=577px, 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
+| narrowPc | >=769px, 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
+|    pc    | >=993px, 响应式栅格数或者栅格属性对象  | object  |   -    |   -    |
+|  widePc  | >=1201px, 响应式栅格数或者栅格属性对象 | object  |   -    |   -    |
+* 注意：本组件是mobile-first，因此默认接收 span、offset 时是手机布局方式
 ## 引入组件
 ```js
 import {Row, Col} from "seed-ui-work";

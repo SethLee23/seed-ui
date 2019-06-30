@@ -5,7 +5,7 @@ export default {
         let toast
         Vue.prototype.$toast = function (clientOptions) {
             if (toast) {
-                console.log('toast 存在且删除')
+                // console.log('toast 存在且删除')
                 toast.close()
             }
             toast = createToast(Vue, clientOptions)

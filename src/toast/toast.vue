@@ -52,7 +52,7 @@ export default {
     if (this.autoClose) {
       setTimeout(() => {
         this.close();
-      }, this.autoClose * 10000);
+      }, this.autoClose * 1000);
     }
     this.$nextTick(() => {
       let { height, top } = this.$refs.toast.getBoundingClientRect();

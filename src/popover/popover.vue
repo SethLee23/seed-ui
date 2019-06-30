@@ -126,6 +126,7 @@ export default {
   filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.5));
   padding: 0.5em 1em;
   max-width: 20em;
+  z-index: 666;
   &::before {
       display: block;
       content: "";
