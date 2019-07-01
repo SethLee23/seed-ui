@@ -7,7 +7,7 @@ title: 'collapse'
 <collapse-demos/>
 </ClientOnly>
 
-## Attributes:
+## Attributes
 ### collapse
 
 |   参数   | 说明                         |  类型   | 可选值 | 默认值 |

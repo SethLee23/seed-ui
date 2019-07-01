@@ -3,6 +3,7 @@
 
 ## 介绍
 学习 Vue 过程中做的一个非常简单的 ui 库，持续更新中
+[seed-ui 文档]( https://sethlee23.github.io/seed-ui/)
 ## 开始使用
 
 1. 添加css样式

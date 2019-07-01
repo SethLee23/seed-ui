@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Seed-UI',
   description: '一个简单的UI组件库',
-  // base: '/seed-ui/',
+  base: '/seed-ui/',
   themeConfig: {
     nav: [{
         text: '首页',
@@ -24,7 +24,7 @@ module.exports = {
       {
         title: '组件',
         collapsable: false,
-        children: ['/compo/button', '/compo/grid', '/compo/collapse', '/compo/input', '/compo/layout', '/compo/popover', '/compo/tabs', '/compo/toast', '/compo/picture-bed']
+        children: ['/compo/button','/compo/icon', '/compo/grid', '/compo/collapse', '/compo/input', '/compo/layout', '/compo/popover', '/compo/tabs', '/compo/toast', '/compo/picture-bed']
       },
     ]
   },

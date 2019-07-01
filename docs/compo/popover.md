@@ -7,7 +7,7 @@ title: 'popover'
 <popover-demos/>
 </ClientOnly>
 
-## Attributes:
+## Attributes
 ### popover
 
 |   参数   | 说明     |  类型  |              可选值              | 默认值 |
@@ -30,5 +30,5 @@ export default {
   }
 };
 ```
-## 注意事项：
+## 注意事项
 * 如果需要使用 button 组件，需要手动引入。

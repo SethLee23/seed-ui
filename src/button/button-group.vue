@@ -31,6 +31,7 @@ export default {
   display: inline-flex;
   > button {
     border-radius: 0;
+    white-space: nowrap;
   }
   > button:first-of-type {
     border-top-left-radius: @border-radius;
